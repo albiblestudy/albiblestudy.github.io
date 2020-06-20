@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<title>箴言第七章</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.gray-box {
+  width: 500px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+.gray-box-all {
+  width: 700px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+.gray-box-4 {
+  width: 30px;
+  padding: 5px;
+  border: 3px solid gray;
+  margin: 0;
+}
+.red-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid red;
+  margin: 0;
+}
+.red-box-3 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid red;
+  margin: 0;
+}
+.red-box-4 {
+  width: 30px;
+  padding: 5px;
+  border: 3px solid red;
+  margin: 0;
+}
+.darkblue-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid darkblue;
+  margin: 0;
+}
+.blue-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid blue;
+  margin: 0;
+}
+.purple-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid purple;
+  margin: 0;
+}
+.green-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid green;
+  margin: 0;
+}
+.orange-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid orange;
+  margin: 0;
+}
+.violet-box-2 {
+  width: 15px;
+  padding: 5px;
+  border: 3px solid violet;
+  margin: 0;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+
+.button1:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttonback, buttonback:visited {
+  background-color: #0101DF;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.buttonback:hover, buttonback:active {
+  background-color: #FF8000;
+  color: black;
+}
+</style>
+
+<body onload="openCity('click','T-0-0', 'M-0-0', 'tab')">
+
+<div class="w3-container">
+<h2>箴 言 第 七 章</h2>
+	<div style="text-align: right; font-size:12px;">
+	&copy; Aaron L.
+	</div>
+
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink w3-red" id="M-0-0" onclick="openCity(event,'T-0-0', id, 'tab')">箴 言 查 经</button>
+	<button class="w3-bar-item w3-button tablink" id="M-0" onclick="openCity(event,'T-0', id, 'tab')">经 文</button>
+    <button class="w3-bar-item w3-button tablink" id="M-1" onclick="openCity(event,'T-1', id, 'tab')">内 容 大 纲</button>
+    <button class="w3-bar-item w3-button tablink" id="M-2" onclick="openCity(event,'T-2', id, 'tab')">问 题 讨 论 一</button>
+    <button class="w3-bar-item w3-button tablink" id="M-3" onclick="openCity(event,'T-3', id, 'tab')">问 题 讨 论 二</button>
+	<button class="w3-bar-item w3-button tablink" id="M-4" onclick="openCity(event,'T-4', id, 'tab')">问 题 讨 论 三</button>
+	<button class="w3-bar-item w3-button tablink" id="M-5" onclick="openCity(event,'T-5', id, 'tab')">问 题 讨 论 四</button>
+  </div>
+  
+  <div id="T-0-0" class="w3-container w3-border city">
+  <img src="..\..\mountaintop.jpg" alt="mountain top" width="955" height="400">
+  </div>
+  
+  <div id="T-0" class="w3-container w3-border city">
+    <h3>第 七 章</h3> <h5>观 察 经 文 的: <span class="green-box-2">人 物</span> (who), <span class="red-box-2">时 间</span> (when), <span class="blue-box-2">地 点</span> (where), <span class="purple-box-2">发 生 什 么</span> (what), <span class="orange-box-2">劝 告</span> (advice) , <span class="violet-box-2">结 局</span> (outcome)</h5>
+	
+		</br>
+		
+		
+		<div style="margin-left: 30px">
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				</br>
+				<button style="color:green; margin-left: 30px" onclick="showObserve('p_01', 'green')">人 物</button>
+				<button style="color:red" onclick="showObserve('p_02', 'red')">时 间</button>
+				<button style="color:blue" onclick="showObserve('p_03', 'blue')">地 点</button>
+				<button style="color:purple" onclick="showObserve('p_04', 'purple')">发 生 什 么</button>
+				<button style="color:orange" onclick="showObserve('p_05', 'orange')">劝 告</button>
+				<button style="color:violet" onclick="showObserve('p_06', 'violet')">结 局</button>
+				<button style="color:black" onclick="clearObserve('p_01'); clearObserve('p_02'); clearObserve('p_03'); clearObserve('p_04'); clearObserve('p_05'); clearObserve('p_06');">复 原</button>
+				<br></br>
+			</ul>
+		</div>
+	
+		<div style="margin-left: 30px">
+			<p><h4>
+			<span style="color:red;">1</span><span class="p_01">我 儿</span> 、你 要 遵 守 <span class="p_01">我</span> 的 言 语 、将 我 的 命 令 存 记 在 心 。 
+			<br></br><span style="color:red;">2</span> <span class="p_05">遵 守 我 的 命 令</span> 、<span class="p_06">就 得 存 活</span> ．<span class="p_05">保 守 我 的 法 则</span> 〔 或 作 指 教 〕 好 像 保 守 眼 中 的 瞳 人 。
+			<br></br><span style="color:red;">3</span> <span class="p_05">系 在 你 指 头 上</span> 、<span class="p_05">刻 在 你 心 版 上</span> 。
+			<br></br><span style="color:red;">4</span> <span class="p_05">对 智 慧 说</span> 、你 是 我 的 姊 妹 ．<span class="p_05">称 呼 聪 明</span> 为 你 的 亲 人 。 
+			<br></br><span style="color:red;">5</span> <span class="p_05">他 就 保 你 远 离 淫 妇</span> 、<span class="p_05">远 离 说 谄 媚 话 的 外 女</span> 。
+			<br></br><span style="color:red;">6</span> 我 曾 在 <span class="p_03">我 房 屋 的 窗 户 内</span> 、从 <span class="p_03">我 窗 棂 之 间</span> 、 往 <span class="p_03">外</span> 观 看 。
+			<br></br><span style="color:red;">7</span> 见 <span class="p_01">愚 蒙 人</span> 内 、<span class="p_01">少 年 人</span> 中 、分 明 有 <span class="p_01">一 个 无 知 的 少 年 人</span> 、
+			<br></br><span style="color:red;">8</span> 从 <span class="p_03">街 上</span> <span class="p_04">经 过</span> 、<span class="p_04">走 近</span> <span class="p_01">淫 妇</span> 的 <span class="p_03">巷 口</span> 、<span class="p_04">直 往 通</span> <span class="p_03">他 家 的 路</span> 去 、
+			<br></br><span style="color:red;">9</span> <span class="p_02">在 黄 昏</span> 、<span class="p_02">或 晚 上</span> 、<span class="p_02">或 半 夜</span> 、<span class="p_02">或 黑 暗 之 中</span> 、
+			<br></br><span style="color:red;">10</span> 看 哪 、有 一 个 妇 人 <span class="p_04">来 迎 接 他</span> 、是 妓 女 的 打 扮 、有 诡 诈 的 心 思 。
+			<br></br><span style="color:red;">11</span> 这 妇 人 喧 嚷 不 守 约 束 、在 家 里 停 不 住 脚 、
+			<br></br><span style="color:red;">12</span> 有 时 在 街 市 上 、有 时 在 宽 阔 处 、或 在 各 巷 口 蹲 伏 。 
+			<br></br><span style="color:red;">13</span> <span class="p_04">拉 住 那 少 年 人</span> 、<span class="p_04">与 他 亲 嘴</span> 、脸 无 羞 耻 <span class="p_04">对 他 说</span> 、 
+			<br></br><span style="color:red;">14</span> 平 安 祭 <span class="p_03">在 我 这 里</span> ．今 日 才 <span class="p_04">还 了 我 所 许 的 愿</span> 。 
+			<br></br><span style="color:red;">15</span> 因 此 、我 <span class="p_04">出 来 迎 接</span> 你 、恳 切 <span class="p_04">求 见</span> 你 的 面 、<span class="p_04">恰 巧 遇 见</span> 了 你 。 
+			<br></br><span style="color:red;">16</span> 我 <span class="p_04">已 经</span> 用 绣 花 毯 子 、和 埃 及 线 织 的 花 纹 布 、<span class="p_04">铺 了</span> 我 的 床 。 
+			<br></br><span style="color:red;">17</span> 我 又 <span class="p_04">用</span> 没 药 、 沉 香 、桂 皮 <span class="p_04">薰 了</span> 我 的 榻 。
+			<br></br><span style="color:red;">18</span> 你 来 、<span class="p_04">我 们 可 以 饱 享 爱 情</span> 、<span class="p_02">直 到 早 晨</span> ．<span class="p_04">我 们 可 以 彼 此 亲 爱 欢 乐</span> 。
+			<br></br><span style="color:red;">19</span> 因 为 <span class="p_01">我 丈 夫</span> 不 在 家 、出 门 行 远 路 。
+			<br></br><span style="color:red;">20</span> 他 手 拿 银 囊 ．必 到 月 望 才 回 家 。
+			<br></br><span style="color:red;">21</span> <span class="p_04">淫 妇 用 许 多 巧 言 诱 他 随 从</span> 、<span class="p_04">用 谄 媚 的 嘴 逼 他 同 行</span> 。
+			<br></br><span style="color:red;">22</span> <span class="p_04">少 年 人 立 刻 跟 随 他</span> 、好 像 牛 往 宰 杀 之 地 、又 像 愚 昧 人 带 锁 链 、去 受 刑 罚 。
+			<br></br><span style="color:red;">23</span> 直 等 箭 穿 他 的 肝 、如 同 雀 鸟 急 入 网 罗 、却 不 知 是 <span class="p_06">自 丧 己 命</span> 。
+			<br></br><span style="color:red;">24</span> <span class="p_01">众 子</span> 阿 、现 在 要 <span class="p_05">听 从 我</span> 、<span class="p_05">留 心 听 我 口 中 的 话</span> 。
+			<br></br><span style="color:red;">25</span> 你 的 心 、<span class="p_05">不 可 偏 向 淫 妇 的 道</span> ．<span class="p_05">不 要 入 他 的 迷 途</span> 。
+			<br></br><span style="color:red;">26</span> 因 为 <span class="p_06">被 他 伤 害 仆 倒</span> 的 不 少 ．<span class="p_06">被 他 杀 戮</span> 的 而 且 甚 多 。
+			<br></br><span style="color:red;">27</span> <span class="p_06">他 的 家</span> 是 在 阴 间 之 路 、<span class="p_06">下 到 死 亡 之 宫</span> 。
+			</h4></p>
+		
+			<button style="color:green" onclick="showObserve('p_01', 'green')">人 物</button>
+			<button style="color:red" onclick="showObserve('p_02', 'red')">时 间</button>
+			<button style="color:blue" onclick="showObserve('p_03', 'blue')">地 点</button>
+			<button style="color:purple" onclick="showObserve('p_04', 'purple')">发 生 什 么</button>
+			<button style="color:orange" onclick="showObserve('p_05', 'orange')">劝 告</button>
+			<button style="color:violet" onclick="showObserve('p_06', 'violet')">结 局</button>
+			<br></br>
+		</div>
+  </div>    
+  
+  <div id="T-1" class="w3-container w3-border city">
+    <h3><span style="color:blue;">抗 拒 淫 妇 / 犯 奸 淫 的 诱 惑 – 生 与 死 的 后 果</span></h3>
+
+	<button onclick="myFunction('C-1')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+	<h5>一. 父 亲 的 劝 告 : (7:1-5):</h5></button>
+	
+	<!-- 1-5 -->
+	<div id="C-1" class="w3-hide w3-container">
+		<p>
+			1 <span class="darkblue-box-2">我 儿</span> 、你 要 <span class="w3-yellow">遵 守</span> 我 的 <span class="w3-light-blue">言 语</span> 、将 我 的 <span class="w3-light-blue">命 令</span> <span class="w3-yellow">存 记</span> 在 心 。
+			<br></br>2 <span class="w3-yellow">遵 守</span> 我 的 <span class="w3-light-blue">命 令</span> 、就 得 存 活 ．<span class="w3-yellow">保 守</span> 我 的 <span class="w3-light-blue">法 则 〔 或 作 指 教 〕</span> 好 像 保 守 眼 中 的 瞳 人 。
+			<br></br>3 <span class="w3-yellow">系 在</span> 你 <span class="w3-light-green">指 头 上</span> 、<span class="w3-yellow">刻 在</span> 你 <span class="w3-light-green">心 版 上</span> 。
+			<br></br>4 <span class="darkblue-box-2">对 智 慧 说</span> 、你 是 我 的 姊 妹 ．<span class="darkblue-box-2">称 呼 聪 明</span> 为 你 的 亲 人 。 
+			<br></br>5 他 就 保 你 <span class="w3-red">远 离</span> 淫 妇 、<span class="w3-red">远 离</span> 说 谄 媚 话 的 外 女 。
+		</p>
+		
+		<div>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-2', 'M-2')">问 题 讨 论 一</button>
+		</div>
+		<br/>		
+	</div>
+	
+	
+	<button onclick="myFunction('C-2')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+	<h5>二. 妇 人 的 诱 惑 (7:6-23):</h5></button>
+	<div id="C-2" class="w3-hide w3-container">
+		<!-- 6-13 -->
+		<button onclick="myFunction('C-2-1')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+		<h5>A. 父 亲 的 观 察 (7:6-13):</h5></button>
+			
+		<div id="C-2-1" class="w3-hide w3-container">
+			
+			<button onclick="myFunction('C-2-1-1')" class="w3-button w3-block w3-left-align w3-purple" style="border: 1px solid darkblue;">
+			<h5>父 亲 看 见 (7:6)</h5></button>
+	
+			<div id="C-2-1-1" class="w3-hide w3-container">
+				<p>
+					6 我 曾 在 我 房 屋 的 窗 户 内 、从 我 窗 棂 之 间 、 <span class="w3-green">往 外 观 看</span> 。
+				</p>
+			</div>
+			
+			<button onclick="myFunction('C-2-1-2')" class="w3-button w3-block w3-left-align w3-purple" style="border: 1px solid darkblue;">
+			<h5>a. 一 个 少 年 人 ( 他 试 探 自 己 ) 7:7-9</h5></button>
+	
+			<div id="C-2-1-2" class="w3-hide w3-container">
+				<p>
+					7 <span class="w3-green">见</span> 愚 蒙 人 内 、少 年 人 中 、<span class="red-box-2">分 明 有 一 个 无 知 的</span> 少 年 人 、
+					<br></br>8 从 街 上 <span class="red-box-2">经 过</span> 、<span class="red-box-2">走 近</span> 淫 妇 的 巷 口 、<span class="w3-yellow">直 往 通</span> 他 家 的 路 去 、
+					<br></br>9 <span class="w3-light-blue">在 黄 昏 、或 晚 上 、或 半 夜 、或 黑 暗 之 中</span> 、
+				</p>
+			</div>
+			
+			<button onclick="myFunction('C-2-1-3')" class="w3-button w3-block w3-left-align w3-purple" style="border: 1px solid darkblue;">
+			<h5>b. 一 个 妇 人 ( 他 被 妇 人 试 探 ) 7:10-13</h5></button>
+	
+			<div id="C-2-1-3" class="w3-hide w3-container">
+				<p>
+					10 <span class="w3-green">看 哪</span> 、有 一 个 妇 人 <span class="w3-red">来</span> 迎 接 他 、是 妓 女 的 打 扮 、有 诡 诈 的 心 思 。
+					<br></br>11 这 妇 人 喧 嚷 <span class="blue-box-2">不 守 约 束</span> 、在 家 里 <span class="blue-box-2">停 不 住 脚</span> 、
+					<br></br>12 有 时 在 街 市 上 、有 时 在 宽 阔 处 、或 在 各 巷 口 蹲 伏 。 
+					<br></br>13 <span class="w3-red">拉 住</span> 那 少 年 人 、与 他 <span class="w3-red">亲 嘴</span> 、脸 无 羞 耻 对 他 <span class="w3-red">说</span> 、 
+				</p>
+			</div>
+			
+		</div>
+		
+		<!-- 14-20 -->
+		<button onclick="myFunction('C-2-2')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+		<h5>B. 妇 人 的 说 话 / 策 略 / 内 容 (7:14-20):</h5></button>
+			
+		<div id="C-2-2" class="w3-hide w3-container">
+			<p>
+				14 平 安 祭 <span class="w3-yellow">在 我 这 里</span> ．今 日 才 还 了 我 所 许 的 愿 。 
+				<br></br>15 因 此 、<span class="w3-green">我 出 来 迎 接 你</span> 、<span class="w3-light-blue">恳 切 求 见 你</span> 的 面 、恰 巧 遇 见 了 你 。 
+				<br></br>16 我 <span class="w3-yellow">已 经</span> 用 绣 花 毯 子 、和 埃 及 线 织 的 花 纹 布 、<span class="w3-yellow">铺 了</span> 我 的 床 。 
+				<br></br>17 我 又 用 没 药 、 沉 香 、桂 皮 <span class="w3-yellow">薰 了</span> 我 的 榻 。
+				<br></br>18 <span class="w3-green">你 来</span> 、<span class="red-box-2">我 们</span> 可 以 饱 享 爱 情 、直 到 早 晨 ．<span class="red-box-2">我 们</span> 可 以 彼 此 亲 爱 欢 乐 。
+				<br></br>19 因 为 <span class="w3-yellow">我 丈 夫 不 在 家 、出 门 行 远 路</span> 。
+				<br></br>20 他 手 拿 银 囊 ．必 到 月 望 才 回 家 。
+			</p>
+			
+			<div>
+				<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">问 题 讨 论 二</button>
+			</div>
+			<br/>
+		</div>
+		
+		<!-- 21-23 -->
+		<button onclick="myFunction('C-2-3')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+		<h5>C. 观 察 的 总 结 (7:21-23):</h5></button>
+			
+		<div id="C-2-3" class="w3-hide w3-container">
+			<button onclick="myFunction('C-2-2-2')" class="w3-button w3-block w3-left-align w3-purple" style="border: 1px solid darkblue;">
+			<h5>( 诱 惑 的 方 法 ) 7:21</h5></button>
+			
+			<div id="C-2-2-2" class="w3-hide w3-container">
+				<p>
+					21 淫 妇 用 许 多 <span class="w3-yellow">巧 言</span> <span class="red-box-2">诱 他</span> 随 从 、用 <span class="w3-yellow">谄 媚 的 嘴</span> <span class="red-box-2">逼 他</span> 同 行 。
+				</p>
+			</div>
+			
+			<button onclick="myFunction('C-2-2-3')" class="w3-button w3-block w3-left-align w3-purple" style="border: 1px solid darkblue;">
+			<h5>( 被 诱 惑 后 果 ) 7:22-23</h5></button>
+	
+			<div id="C-2-2-3" class="w3-hide w3-container">
+				<p>
+					22 少 年 人 <span class="w3-red">立 刻 跟 随</span> 他 、<span class="w3-light-blue">好 像</span> 牛 往 宰 杀 之 地 、<span class="w3-light-blue">又 像</span> 愚 昧 人 带 锁 链 、去 受 刑 罚 。
+					<br></br>23 直 等 箭 穿 他 的 肝 、<span class="w3-light-blue">如 同</span> 雀 鸟 急 入 网 罗 、<span class="w3-yellow">却 不 知 是 自 丧 己 命</span>
+					。
+				</p>
+			</div>
+		</div>
+		
+		</br>
+		<div>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-4', 'M-4')">问 题 讨 论 三</button>
+			<br></br>
+		</div>
+	</div>
+	
+	<!-- 24-27 -->
+	<button onclick="myFunction('C-3')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+	<h5>三. 父 亲 再 次 的 劝 告 (7:24-27):</h5></button>
+	<div id="C-3" class="w3-hide w3-container">
+		<p>
+			24 <span class="darkblue-box-2">众 子</span> 阿 、现 在 要 <span class="darkblue-box-2">听 从</span> 我 、<span class="darkblue-box-2">留 心 听</span> 我 口 中 的 话 。
+			<br></br>25 你 的 心 、<span class="w3-red">不 可</span> 偏 向 淫 妇 的 道 ．<span class="w3-red">不 要</span> 入 他 的 迷 途 。(not turn aside; not stray / wander)
+			<br></br>26 因 为 <span class="w3-yellow">被 他 伤 害 仆 倒 的</span> 不 少 ．<span class="w3-yellow">被 他 杀 戮 的</span> 而 且 甚 多 。
+			<br></br>27 他 的 家 是 在 阴 间 之 路 、<span class="w3-red">下 到 死 亡 之 宫</span> 。
+		</p>
+		
+		<div>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-5', 'M-5')">问 题 讨 论 四</button>
+			<br></br>
+		</div>
+	</div>
+	
+	</br>
+  
+  </div>
+  
+  <div id="T-2" class="w3-container w3-border city">
+    <h3><span style="color:purple;">问 题 讨 论 一</span></h3>
+	<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+		<li style="border: .5px solid blue;">1. 按 一 至 五 节 : 不 被 诱 惑 的 方 法 有 <span class="w3-yellow">那 些</span> ?</li>
+		<li style="border: .5px solid blue;">2. 为 什 么 这 些 方 法 对 我 们 来 说 是 那 么 的 <span class="w3-yellow">重 要</span> ?</li>
+	</ul>
+	
+	<div>
+		<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">内 容 大 纲</button>
+	</div>
+	</br>
+	
+  </div>
+  
+  <div id="T-3" class="w3-container w3-border city">
+    <h3><span style="color:purple;">问 题 讨 论 二</span></h3>
+	<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+		<li style="border: .5px solid blue;">1. 按 经 文 ,  诱 惑 的 策 略 有 <span class="w3-yellow">那 些</span> ?</li>
+		<li style="border: .5px solid blue;">
+			<button onclick="myFunction('T-3-A')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>可能性</h7></button>
+			<div id="T-3-A" class="w3-hide w3-container">
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_01', ': 无 知')">经 过 走 近 直 往</button>&nbsp;<span id = "aswr_01" style="color:red;">:</span></li>
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_02', ': 自 我')">是 为 你 而 设 的</button>&nbsp;<span id = "aswr_02" style="color:red;">:</span></li>
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_03', ': 享 乐 ( 约一 2：16-17 ）')">世 界 上 的 情 欲</button>&nbsp;<span id = "aswr_03" style="color:red;">:</span></li>
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_04', ': 谎 言')">我 並 没 有 行 恶</button>&nbsp;<span id = "aswr_04" style="color:red;">:</span></li>
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_05', ': 逃 脫')">並 不 為 人 所 知</button>&nbsp;<span id = "aswr_05" style="color:red;">:</span></li>
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_06', ': 同 流 ( 罗 1:18-32 )')">把 行 恶 合 理 化</button>&nbsp;<span id = "aswr_06" style="color:red;">:</span></li>
+					<li style="border: .5px solid green;"><button onclick="showAnswer('aswr_07', ': 冲 动')">现 在 就 是 时 机</button>&nbsp;<span id = "aswr_07" style="color:red;">:</span></li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	
+	<div>
+		<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">内 容 大 纲</button>
+	</div>
+	</br>
+	
+  </div> 
+  
+  <div id="T-4" class="w3-container w3-border city">
+    <h3><span style="color:purple;">问 题 讨 论 三</span></h3>
+	<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+		<li style="border: .5px solid blue;">1. 根 据 六 至 十 三 节 的 经 文 , 你 对 "<span class="w3-yellow">诱 惑 / 试 探</span>" 有 什 么 观 察 ( <span class="w3-yellow">根 源, 目 的, 结 果</span> )</li>
+		<li style="border: .5px solid blue;">2. 在 我 们 的 日 常 生 活 中 , 除 了 经 文 所 描 绘 的 试 探 , 还 有 遇 到 <span class="w3-yellow">那 些 方 面</span> 的 诱 惑 / 试 探 ?</li>
+		<li style="border: .5px solid blue;">3. 我 們 <span class="w3-yellow">如 何</span> 在 實 際 的 行 動 上 <span class="w3-yellow">面 對 诱 惑 / 试 探</span> ?</li>
+		<li style="border: .5px solid blue;">
+			4. 圣 经 在 这 方 面 有 什 么 的 教 导 ?
+			<button onclick="myFunction('T-4-A')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>对象</h7></button>
+			<div id="T-4-A" class="w3-hide w3-container">
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+					<li style="border: .5px solid green;">...摩西对他们说、你们为什么与我争闹、<span class="w3-yellow">为什么试探耶和华呢</span>。 (出 17:2下)</li>
+					<li style="border: .5px solid green;">...<span class="w3-yellow">又因他们试探耶和华说、耶和华是在我们中间不是</span>。 (出 17:7下)</li>
+					<li style="border: .5px solid green;">这些人虽看见我的荣耀、和我在埃及与旷野所行的神迹、仍然试探我这十次、<span class="w3-yellow">不听从我的话</span>、 (民14:22)</li>
+					<li style="border: .5px solid green;">当时、耶稣被圣灵引到旷野、受魔鬼的试探。(太4:1)</li>
+					<li style="border: .5px solid green;">耶稣对他说、经上又记着说、『<span class="w3-yellow">不可试探主你的　神。</span>』 (太4:7)</li>
+					<li style="border: .5px solid green;"><span class="w3-yellow">彼得说、你们为什么同心试探主的灵呢</span>．埋葬你丈夫之人的脚、已到门口、他们也要把你抬出去。(徒 5:9)</li>
+				</ul>
+			</div>
+			
+			<button onclick="myFunction('T-4-B')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>主因</h7></button>
+			<div id="T-4-B" class="w3-hide w3-container">
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+				    <li style="border: .5px solid green;">13 人被试探、不可说、我是被　神试探．因为　神不能被恶试探、他也不试探人． 14 <span class="w3-yellow">但各人被试探、乃是被自己的私欲牵引诱惑的</span>。 15 私欲既怀了胎、就生出罪来．罪既长成、就生出死来。 (雅各书 1:13-15)</li>
+				</ul>
+			</div>
+			
+			<button onclick="myFunction('T-4-C')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>态度</h7></button>
+			<div id="T-4-C" class="w3-hide w3-container">
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+					<li style="border: .5px solid green;">就<span class="w3-yellow">不可硬着心</span>、像在旷野惹他发怒、试探他的时候一样． (希3:8)</li>
+				</ul>
+			</div>
+			
+			<button onclick="myFunction('T-4-D')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>出路</h7></button>
+			<div id="T-4-D" class="w3-hide w3-container">
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+					<li style="border: .5px solid green;"><span class="darkblue-box-2">依靠主</span></li>
+					<li style="border: .5px solid green;">你们所遇见的试探、无非是人所能受的、　神是信实的、必不叫你们受试探过于所能受的．<span class="w3-yellow">在受试探的时候、总要给你们开一条出路、叫你们能忍受得住</span>。 (林前10:13)</li>
+					<li style="border: .5px solid green;">15 因我们的大祭司、并非不能体恤我们的软弱．他也曾凡事受过试探、与我们一样．只是他没有犯罪。 16 <span class="w3-yellow">所以我们只管坦然无惧的、来到施恩的宝座前、为要得怜恤、蒙恩惠作随时的帮助。</span>(希4:15-16)</li>
+					<li style="border: .5px solid green;">12 忍受试探的人是有福的．因为他<span class="w3-yellow">经过试验以后、必得生命的冠冕</span>、<span class="w3-green">这是主应许给那些爱他之人的</span>。 (雅各书 1:12)</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	
+	<div>
+		<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">内 容 大 纲</button>
+	</div>
+	</br>
+	
+  </div> 
+
+  <div id="T-5" class="w3-container w3-border city">
+    <h3><span style="color:purple;">问 题 讨 论 四</span></h3>
+	<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+		<li style="border: .5px solid blue;">1.对于父亲的劝告 "24 ... 听从我、留心听我口中的话。 25 你的心 ...", <span class="w3-yellow">你 有 什 么 回 响</span> ?</li>
+		<li style="border: .5px solid blue;">2. 今 天 的 经 文 , <span class="w3-yellow">如 何 应 用 在 我 们 的 信 仰 上</span> ? (敬 拜 神 , 又 转 去 拜 偶 像)</li>
+		<li style="border: .5px solid blue;">
+			<button onclick="myFunction('T-5-A')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>圣经中, 有那两条路</h7></button>
+			<div id="T-5-A" class="w3-hide w3-container">
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+					<li style="border: .5px solid green;">有一条路 人以为正．至终成为死亡之路。 (箴言 14:12; 16:25)</li>
+					<li style="border: .5px solid green;">耶稣说、我就是道路、真理、生命．若不借着我、没有人能到父那里去。 (约 14:6)</li>
+				</ul>
+			</div>
+		</li>
+		<li style="border: .5px solid blue;">
+			<button onclick="myFunction('T-5-B')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+			<h7>小结</h7></button>
+			<div id="T-5-B" class="w3-hide w3-container">
+				<h4><span class="darkblue-box-2">知 己 知 彼</span> ... <span class="darkblue-box-2">听 父 之 言</span></h4>
+			</div>
+		</li>
+	</ul>
+	
+	<div>
+		<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">内 容 大 纲</button>
+	</div>
+	</br>
+	
+  </div>    
+
+</div>
+
+<div class="w3-container">
+<p><a href=".\..\..\ot.html" class="buttonback">旧 约</a></p>
+</div>
+
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+function openCity(evt, cityName, id, tab) {
+  var i, x, tablinks, tabid;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  if (tab == "tab") { // call from tab, not from other link
+    if (evt == "click") {tablinks[0].className += " w3-red";} 
+	else {evt.currentTarget.className += " w3-red";}
+  }
+  // for call from other button on the page
+  tabid = document.getElementById(id);
+  if (tabid.className.indexOf("w3-red") == -1) {tabid.className += " w3-red";}
+}
+
+function showAnswer(id, displayTxt) {
+  var x = document.getElementById(id);
+  if (x.innerHTML === ":") {
+	 x.innerHTML = displayTxt;
+  } else {
+	 x.innerHTML = ":";
+  }
+}
+
+function showObserve(id, displayColor) {
+  var match = document.getElementsByClassName(id);
+  for (var i=0; i < match.length; i++) {
+	if (match[i].style.color === displayColor) {
+		match[i].style.color = "black";
+		match[i].style.border = "none";
+	} else {
+		match[i].style.color = displayColor;
+		match[i].style.border = "thin solid gray";
+	}
+  }
+}
+
+function clearObserve(id) {
+  var match = document.getElementsByClassName(id);
+  for (var i=0; i < match.length; i++) {
+    match[i].style.color = "black";
+	match[i].style.border = "none";
+  }
+}
+</script>
+
+</body>
+</html>
