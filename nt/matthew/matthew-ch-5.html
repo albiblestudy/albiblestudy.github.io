@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html>
+<title>马太福音第五章</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="..\..\.\css\mybible.css">
+<script src="..\..\.\js\mybible.js"></script>
+
+<style>
+.draggableBlock {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+.draggableName {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: green;
+  color: #fff;
+}
+.nonDraggableBlock {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+.nonDraggableName-1 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: purple;
+  color: #fff;
+}
+.nonDraggableName-2 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: green;
+  color: #fff;
+}
+.nonDraggableName-3 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: red;
+  color: #fff;
+}
+.nonDraggableName-4 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: #610B21;
+  color: #fff;
+}
+.nonDraggableName-5-1 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: #04B45F;
+  color: #fff;
+}
+.nonDraggableName-5-2 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: #FF4000;
+  color: #fff;
+}
+.nonDraggableName-5-3 {
+  padding: 10px;
+  cursor: not-allowed;
+  z-index: 10;
+  background-color: #2E2E2E;
+  color: #fff;
+}
+.dropContainer {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 2px solid #aaaaaa;
+}
+
+.column {
+  float: left;
+  width: 15%;
+  padding: 10px;
+  height: 200px;
+}
+.column-1 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 200px;
+}
+.column-2 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 200px;
+}
+input[type=text] {
+  width: 70%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+input[type=text]:focus {
+  background-color: lightgreen;
+}
+select:focus {
+	background-color: lightgreen;
+}
+.border-box-4 {
+  width: 250px;
+  padding: 5px;
+  border: 3px solid black;
+  margin: 0;
+}
+.draggableName-purple {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: purple;
+  color: #fff;
+}
+.draggableName-green {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: green;
+  color: #fff;
+}
+.draggableName-red {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: red;
+  color: #fff;
+}
+.draggableName-orange {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: orange;
+  color: black;
+}
+.draggableName-black {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: black;
+  color: #fff;
+}
+.draggableName-darkblue {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: darkblue;
+  color: #fff;
+}
+.draggableName-pink {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: pink;
+  color: black;
+}
+
+
+/* The Modal (background) */
+.jpg_modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.jpg_modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.jpg_caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.jpg_modal-content, .jpg_caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.jpg_close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.jpg_close:hover,
+.jpg_close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .jpg_modal-content {
+    width: 100%;
+  }
+}
+
+</style>
+
+
+<body onload="openCity('click','T-0-0', 'M-0-0', 'tab')" oncontextmenu="return false;">
+
+<!-- main content -->
+<div class="w3-container">
+
+	<!-- intro -->
+	<h2>马 太 福 音 第 五 章</h2>
+	<div style="text-align: right; font-size:12px;">
+	&copy; Aaron L.
+	</div>
+	<!-- intro -->
+
+	<!-- menu -->
+	<div class="w3-bar w3-black" id="menubar">
+		<button class="w3-bar-item w3-button tablink w3-red" id="M-0-0" onclick="openCity(event,'T-0-0', id, 'tab')">马 太 福 音 查 经</button>
+		<button class="w3-bar-item w3-button tablink" id="M-0" onclick="openCity(event,'T-0', id, 'tab')">经 文 1-20 节</button>
+		<button class="w3-bar-item w3-button tablink" id="M-1" onclick="openCity(event,'T-1', id, 'tab')">经 文 21-48 节</button>
+		<button class="w3-bar-item w3-button tablink" id="M-2" onclick="openCity(event,'T-2', id, 'tab')">主 旨 探 索</button>
+		<button class="w3-bar-item w3-button tablink" id="M-3" onclick="openCity(event,'T-3', id, 'tab')">有 福 了</button>
+		<button class="w3-bar-item w3-button tablink" id="M-4" onclick="OpenMenu(event,'T-4', id, 'tab')">内 容 大 纲</button>
+		<button class="w3-bar-item w3-button tablink" id="M-50" onclick="openCity(event,'T-50', id, 'tab')">讨 论 一</button>
+		<button class="w3-bar-item w3-button tablink" id="M-51" onclick="openCity(event,'T-51', id, 'tab')">讨 论 二</button>
+		<button class="w3-bar-item w3-button tablink" id="M-55" onclick="openCity(event,'T-55', id, 'tab')">其 它 讨 论</button>
+		<button class="w3-bar-item w3-button tablink" id="M-100" onclick="OpenMenu(event,'T-100', id, 'tab')">总 论</button>
+	 </div>
+	 <!-- menu -->
+  
+	<!-- 马 太 福 音 查 经 page -->
+	<div id="T-0-0" class="w3-container w3-border city imagecontainer" style="background-color: navy;">
+		<img src="..\..\mountaintop.jpg" alt="mountain top" width="100%" height="400" style="padding:5px;">
+		<span class="centeredtext">马 太 福 音 第 五 章</span>
+	</div>
+	<!-- 马 太 福 音 查 经 page -->
+  
+	<!-- 经 文 20:1-20 page -->
+	<div id="T-0" class="w3-container w3-border city">
+		<h3 id="C-TOP-1">第 五 章 1-20 节</h3>
+		
+		<div>
+			<a href="#C-BOTTOM-1" class="buttonbookmark">到 四 十 八 节</a>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">经 文 21-48 节</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-2', 'M-2')">主 旨 探 索</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">有 福 了</button>
+		</div>
+		
+		<!-- study -->
+		</br>
+		<div>
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				</br>
+				<button style="color:green; margin-left: 30px" onclick="showObserve('p_01', 'green')">耶 稣</button>
+				<button style="color:red" onclick="showObserve('p_02', 'red')">有 福 了</button>
+				<button style="color:navy" onclick="showObserve('p_03', 'navy')">有 福 的 他 们</button>
+				<button style="color:purple" onclick="showObserve('p_04', 'purple')">门 徒</button>
+				<button style="color:crimson" onclick="showObserve('p_05', 'crimson')">先 知</button>
+				<button style="color:brown" onclick="showObserve('p_06', 'brown')">其 它 人</button>
+				<button style="color:blue" onclick="showObserve('p_07', 'blue')">有 关 天 上</button>
+				<button style="color:tomato" onclick="showObserve('p_08', 'tomato')">有 关 律 法</button>
+				<button style="color:blueviolet" onclick="showObserve('p_09', 'blueviolet')">废 掉 与 成 全</button>
+				
+				<button style="color:black" onclick="clearObserve('p_01'); clearObserve('p_02');clearObserve('p_03');clearObserve('p_04');clearObserve('p_05');
+						clearObserve('p_06');clearObserve('p_07');
+						clearObserve('p_08');clearObserve('p_09');">复 原</button>
+				<br></br>
+			</ul>
+		</div>
+		</br>
+		
+		<div style="margin-left: 30px">
+			<p>
+			<h4>
+				<span style="color:red;">1</span> <span class="p_01">耶 稣</span> 看 见 这 <span class="p_06">许 多 的 人</span> 、 就 上 了 山 、 既 已 坐 下 、 <span class="p_04">门 徒</span> 到 <span class="p_01">他</span> 跟 前 来 。
+				<br></br><span style="color:red;">2</span> <span class="p_01">他</span> 就 开 口 教 训 <span class="p_04">他 们</span> 说 、
+				<br></br><span style="color:red;">3</span> 虚 心 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_07">天 国</span> 是 <span class="p_03">他 们</span> 的 。
+				<br></br><span style="color:red;">4</span> 哀 恸 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_03">他 们</span> 必 得 安 慰 。
+				<br></br><span style="color:red;">5</span> 温 柔 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_03">他 们</span> 必 承 受 地 土 。
+				<br></br><span style="color:red;">6</span> 饥 渴 慕 义 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_03">他 们</span> 必 得 饱 足 。
+				<br></br><span style="color:red;">7</span> 怜 恤 人 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_03">他 们</span> 必 蒙 怜 恤 。
+				<br></br><span style="color:red;">8</span> 清 心 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_03">他 们</span> 必 得 见 　 神 。
+				<br></br><span style="color:red;">9</span> 使 人 和 睦 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_03">他 们</span> 必 称 为 　 神 的 儿 子 。
+				<br></br><span style="color:red;">10</span> 为 义 受 逼 迫 的 人 <span class="p_02">有 福 了</span> ．因 为 <span class="p_07">天 国</span> 是 <span class="p_03">他 们</span> 的 。
+				<br></br><span style="color:red;">11</span> 人 若 因 我 辱 骂 <span class="p_04">你 们</span> 、 逼 迫 <span class="p_04">你 们</span> 、 捏 造 各 样 坏 话 毁 谤 <span class="p_04">你 们</span> 、 <span class="p_04">你 们</span> 就 <span class="p_02">有 福 了</span> 。
+				<br></br><span style="color:red;">12</span> 应 当 欢 喜 快 乐 ．因 为 <span class="p_04">你 们</span> 在 <span class="p_07">天 上 的 赏 赐</span> 是 大 的 ．在 <span class="p_04">你 们</span> 以 前 的 <span class="p_05">先 知</span> 、 人 也 是 这 样 逼 迫 <span class="p_05">他 们</span> 。
+				<br></br><span style="color:red;">13</span> <span class="p_04">你 们</span> 是 世 上 的 盐 ．盐 若 失 了 味 、 怎 能 叫 他 再 咸 呢 ．以 后 无 用 、 不 过 丢 在 外 面 、 被 人 践 踏 了 。
+				<br></br><span style="color:red;">14</span> <span class="p_04">你 们</span> 是 世 上 的 光 ．城 造 在 山 上 、 是 不 能 隐 藏 的 。
+				<br></br><span style="color:red;">15</span> 人 点 灯 、 不 放 在 斗 底 下 、 是 放 在 灯 台 上 、 就 照 亮 一 家 的 人 。
+				<br></br><span style="color:red;">16</span> <span class="p_04">你 们</span> 的 光 也 当 这 样 照 在 人 前 、 叫 <span class="p_06">他 们</span> 看 见 <span class="p_04">你 们</span> 的 好 行 为 、 便 将 荣 耀 归 给 <span class="p_04">你 们</span> 在 <span class="p_07">天 上 的 父</span> 。
+				<br></br><span style="color:red;">17</span> 莫 想 我 来 要 <span class="p_09">废 掉</span> <span class="p_08">律 法 和 先 知</span> ．我 来 不 是 要 <span class="p_09">废 掉</span> 、 乃 是 要 <span class="p_09">成 全</span> 。
+				<br></br><span style="color:red;">18</span> 我 实 在 告 诉 <span class="p_04">你 们</span> 、 就 是 到 天 地 都 废 去 了 、 <span class="p_08">律 法 的 一 点 一 画</span> 也 <span class="p_09">不 能 废 去</span> 、 都 要 <span class="p_09">成 全</span> 。
+				<br></br><span style="color:red;">19</span> 所 以 <span class="p_06">无 论 何 人</span> <span class="p_09">废 掉</span> 这 <span class="p_08">诫 命</span> 中 最 小 的 一 条 、 又 教 训 人 这 样 作 、 <span class="p_06">他</span> 在 <span class="p_07">天 国</span> 要 称 为 最 小 的 ．但 <span class="p_06">无 论 何 人</span> 遵 行 这 <span class="p_08">诫 命</span> 、 又 教 训 人 遵 行 、 <span class="p_06">他</span> 在 <span class="p_07">天 国</span> 要 称 为 大 的 。
+				<br></br><span style="color:red;">20</span> 我 告 诉 <span class="p_04">你 们</span> 、 <span class="p_04">你 们</span> 的 义 、 若 不 胜 于 <span class="p_06">文 士 和 法 利 赛 人</span> 的 <span class="p_08">义</span> 、 断 不 能 进 <span class="p_07">天 国</span> 。
+				<br></br><span style="color:red;">...</span>
+				<br></br><span style="color:red;">...</span>
+				<br></br><span id="C-BOTTOM-1" style="color:red;">48</span> 所 以 <span class="p_04">你 们</span> 要 <span class="p_09">完 全</span> 、 像 <span class="p_04">你 们</span> 的 <span class="p_07">天 父</span> <span class="p_09">完 全</span> 一 样 。
+				<br></br>
+			</h4>
+			</p>
+		</div> <!-- passage content -->
+		
+		<!-- study -->
+		<div>
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				</br>
+				<button style="color:green; margin-left: 30px" onclick="showObserve('p_01', 'green')">耶 稣</button>
+				<button style="color:red" onclick="showObserve('p_02', 'red')">有 福 了</button>
+				<button style="color:navy" onclick="showObserve('p_03', 'navy')">有 福 的 他 们</button>
+				<button style="color:purple" onclick="showObserve('p_04', 'purple')">门 徒</button>
+				<button style="color:crimson" onclick="showObserve('p_05', 'crimson')">先 知</button>
+				<button style="color:brown" onclick="showObserve('p_06', 'brown')">其 它 人</button>
+				<button style="color:blue" onclick="showObserve('p_07', 'blue')">有 关 天 上</button>
+				<button style="color:tomato" onclick="showObserve('p_08', 'tomato')">有 关 律 法</button>
+				<button style="color:blueviolet" onclick="showObserve('p_09', 'blueviolet')">废 掉 与 成 全</button>
+				
+				<button style="color:black" onclick="clearObserve('p_01'); clearObserve('p_02');clearObserve('p_03');clearObserve('p_04');clearObserve('p_05');
+						clearObserve('p_06');clearObserve('p_07');
+						clearObserve('p_08');clearObserve('p_09');">复 原</button>
+				<br></br>
+			</ul>
+		</div>
+		
+		</br>
+		<div>
+			<a href="#C-TOP-1" class="buttonbookmark">回 到 第 一 节</a>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">经 文 21-48 节</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-2', 'M-2')">主 旨 探 索</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">有 福 了</button>
+		</div>
+		</br>
+	</div>
+	<!-- 经 文 20:1-20 page -->
+	
+	<!-- 经 文 20:21-48 page -->
+	<div id="T-1" class="w3-container w3-border city">
+		<h3 id="C-TOP-2">第 五 章 21-48 节</h3>
+		
+		<div>
+			<a href="#C-BOTTOM-2" class="buttonbookmark">到 四 十 八 节</a>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-0', 'M-0')">经 文 1-20 节</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-2', 'M-2')">主 旨 探 索</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">有 福 了</button>
+		</div>
+		
+		<!-- study -->
+		</br>
+		<div>
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				</br>
+				<button style="color:green; margin-left: 30px" onclick="showObserve('p_01_01', 'green')">听 见 有 话 说</button>
+				<button style="color:red" onclick="showObserve('p_02_02', 'red')">旧 约 圣 经</button>
+				<button style="color:navy" onclick="showObserve('p_03_03', 'navy');">我 告 诉</button>
+				<button style="color:purple" onclick="showObserve('p_04_04', 'purple')">门 徒</button>
+				<button style="color:crimson" onclick="showObserve('p_05_05', 'crimson')">有 关 天 上</button>
+				<button style="color:brown" onclick="showObserve('p_06_06', 'brown')">完 全</button>
+				
+				<button style="color:black" onclick="clearObserve('p_01_01'); clearObserve('p_02_02');clearObserve('p_03_03');
+						clearObserve('p_04_04');clearObserve('p_05_05');
+						clearObserve('p_06_06');">复 原</button>
+				<br></br>
+			</ul>
+		</div>
+		</br>
+		
+		<div style="margin-left: 30px">
+			<p>
+			<h4>
+				<span style="color:red;">21</span>  <span class="p_04_04">你 们</span>  <span class="p_01_01">听 见 有 吩 咐 古 人 的 话、 说</span>  、『 <span class="p_02_02">不 可 杀 人</span> 、』 <span class="p_01_01">又 说</span> 、 『 <span class="p_02_02">凡 杀 人 的 、 难 免 受 审 判</span> 。』
+				<br></br><span style="color:red;">22</span> 只 是 <span class="p_03_03">我 告 诉</span> <span class="p_04_04">你 们</span>  、 凡 向 弟 兄 动 怒 的 、 难 免 受 审 判 。〔 有 古 卷 在 凡 字 下 添 无 缘 无 故 的 五 字 〕 凡 骂 弟 兄 是 拉 加 的 、 难 免 公 会 的 审断 ． 凡 骂 弟 兄 是 魔 利 的 、 难 免 地 狱 的 火 。 
+				<br></br><span style="color:red;">23</span> 所 以 <span class="p_04_04">你</span>  在 祭 坛 上 献 礼 物 的 时 候 、若 想 起 弟 兄 向 <span class="p_04_04">你</span>  怀 怨 、
+				<br></br><span style="color:red;">24</span> 就 把 礼 物 留 在 坛 前 、 先 去 同 弟 兄 和 好 、 然 后 来 献 礼 物 。
+				<br></br><span style="color:red;">25</span> <span class="p_04_04">你</span>  同 告 <span class="p_04_04">你</span>  的 对 头 还 在 路 上 、 就 赶 紧 与 他 和 息 ． 恐 怕 他 把 <span class="p_04_04">你</span>  送 给 审 判 官 、 审 判 官 交 付 衙 役 、 <span class="p_04_04">你</span>  就 下 在 监 里 了 。
+				<br></br><span style="color:red;">26</span> <span class="p_03_03">我 实 在 告 诉</span> <span class="p_04_04">你</span>  、 若 有 一 文 钱 没 有 还 清 、 <span class="p_04_04">你</span>  断 不 能 从 那 里 出 来 。
+				<br></br><span style="color:red;">27</span> <span class="p_04_04">你 们</span>  <span class="p_01_01">听 见 有 话 说</span> 、『 <span class="p_02_02">不 可 奸 淫</span> 。』
+				<br></br><span style="color:red;">28</span> 只 是 <span class="p_03_03">我 告 诉</span> <span class="p_04_04">你 们</span>  、 凡 看 见 妇 女 就 动 淫 念 的 、 这 人 心 里 已 经 与 他 犯 奸 淫 了 。
+				<br></br><span style="color:red;">29</span> 若 是 <span class="p_04_04">你</span>  的 右 眼 叫 <span class="p_04_04">你 </span> 跌 倒 、 就 剜 出 来 丢 掉 ． 宁 可 失 去 百 体 中 的 一 体 、 不 叫 全 身 丢 在 地 狱 里 。
+				<br></br><span style="color:red;">30</span> 若 是 右 手 叫 <span class="p_04_04">你</span>  跌 倒 、 就 砍 下 来 丢 掉 ． 宁 可 失 去 百 体 中 的 一 体 、 不 叫 全 身 下 入 地 狱 。
+				<br></br><span style="color:red;">31</span> 又 <span class="p_01_01">有 话 说</span> 、 <span class="p_02_02">人 若 休 妻 、 就 当 给 他 休 书</span> 。
+				<br></br><span style="color:red;">32</span> 只 是 <span class="p_03_03">我 告 诉</span> <span class="p_04_04">你 们</span>  、 凡 休 妻 的 、 若 不 是 为 淫 乱 的 缘 故 、 ​就 是 叫 他 作 淫 妇 了 ． 人 若 娶 这 被 休 的 妇 人 、 也 是 犯 奸 淫 了 。
+				<br></br><span style="color:red;">33</span> <span class="p_04_04">你 们</span>  又 <span class="p_01_01">听 见 有 吩 咐 古 人 的 话</span> 、 说 、『 <span class="p_02_02">不 可 背 誓 、 所 起 的 誓 、 总 要 向 主 谨 守</span> 。』
+				<br></br><span style="color:red;">34</span> 只 是 <span class="p_03_03">我 告 诉</span> <span class="p_04_04">你 们</span>  、 什 么 誓 都 不 可 起 、不 可 指 着 <span class="p_05_05">天</span> 起 誓 、 因 为 <span class="p_05_05">天</span> 是 　 神 的 座 位 ．
+				<br></br><span style="color:red;">35</span> 不 可 指 着 地 起 誓 、 因 为 地 是 他 的 脚 凳 ． 也 不 可 指 着 耶 路 撒 冷 起 誓 、 因 为 耶 路 撒 冷 是 大 君 的 京 城 。
+				<br></br><span style="color:red;">36</span> 又 不 可 指 着 <span class="p_04_04">你</span>  的 头 起 誓 、 因 为 <span class="p_04_04">你</span>  不 能 使 一 根 头 发 变 黑 变 白 了 。
+				<br></br><span style="color:red;">37</span> <span class="p_04_04">你 们</span>  的 话 、 是 、 就 说 是 ． 不 是 、 就 说 不 是 ． 若 再 多 说 、 就 是 出 于 那 恶 者 。〔 或 作 是 从 恶 里 出 来 的 〕
+				<br></br><span style="color:red;">38</span> <span class="p_04_04">你 们</span>  <span class="p_01_01">听 见 有 话 说</span> 、『 <span class="p_02_02">以 眼 还 眼 、 以 牙 还 牙</span> 。』
+				<br></br><span style="color:red;">39</span> 只 是 <span class="p_03_03">我 告 诉</span> <span class="p_04_04">你 们</span>  、 不 要 与 恶 人 作 对 ． 有 人 打 <span class="p_04_04">你</span>  的 右 脸 、 连 左 脸 也 转 过 来 由 他 打 。
+				<br></br><span style="color:red;">40</span> 有 人 想 要 告 <span class="p_04_04">你</span>  、 要 拿 <span class="p_04_04">你</span>  的 里 衣 、 连 外 衣 也 由 他 拿 去 。
+				<br></br><span style="color:red;">41</span> 有 人 强 逼 <span class="p_04_04">你</span>  走 一 里 路 、 <span class="p_04_04">你</span>  就 同 他 走 二 里 。
+				<br></br><span style="color:red;">42</span> 有 求 <span class="p_04_04">你</span>  的 、 就 给 他 ． 有 向 <span class="p_04_04">你</span>  借 贷 的 、 不 可 推 辞 。
+				<br></br><span style="color:red;">43</span> <span class="p_04_04">你 们</span>  <span class="p_01_01">听 见 有 话 说</span> 、『 <span class="p_02_02">当 爱 你 的 邻 舍 、 恨 你 的 仇 敌</span> 。』
+				<br></br><span style="color:red;">44</span> 只 是 <span class="p_03_03">我 告 诉</span> <span class="p_04_04">你 们</span>  、 要 爱 <span class="p_04_04">你 们</span> 的 仇 敌 ． 为 那 逼 迫 <span class="p_04_04">你 们</span> 的 祷 告 。
+				<br></br><span style="color:red;">45</span> 这 样 、 就 可 以 作 <span class="p_04_04">你 们</span>  <span class="p_05_05">天 父 的 儿 子</span> ． 因 为 他 叫 日 头 照 好 人 、也 照 歹 人 、降 雨 给 义 人 、 也 给 不 义 的 人 。
+				<br></br><span style="color:red;">46</span> <span class="p_04_04">你 们</span>  若 单 爱 那 爱 <span class="p_04_04">你 们</span> 的 人 ． 有 什 么 赏 赐 呢 ． 就 是 税 吏 不 也 是 这 样 行 么 。
+				<br></br><span style="color:red;">47</span> <span class="p_04_04">你 们</span>  若 单 请 <span class="p_04_04">你</span> 弟 兄 的 安 、 比 人 有 什 么 长 处 呢 ． 就 是 外 邦 人 不 也 是 这 样 行 么 。
+				<br></br><span id="C-BOTTOM-2" style="color:red;">48</span> 所 以 <span class="p_04_04">你 们</span>  要 <span class="p_06_06">完 全</span> 、 像 <span class="p_04_04">你 们</span>  的 <span class="p_05_05">天 父</span> <span class="p_06_06">完 全</span> 一 样 。
+				<br></br>
+			</h4>
+			</p>
+		</div> <!-- passage content -->
+		
+		<!-- study -->
+		<div>
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				</br>
+				<button style="color:green; margin-left: 30px" onclick="showObserve('p_01_01', 'green')">听 见 有 话 说</button>
+				<button style="color:red" onclick="showObserve('p_02_02', 'red')">旧 约 圣 经</button>
+				<button style="color:navy" onclick="showObserve('p_03_03', 'navy');">我 告 诉</button>
+				<button style="color:purple" onclick="showObserve('p_04_04', 'purple')">门 徒</button>
+				<button style="color:crimson" onclick="showObserve('p_05_05', 'crimson')">有 关 天 上</button>
+				<button style="color:brown" onclick="showObserve('p_06_06', 'brown')">完 全</button>
+				
+				<button style="color:black" onclick="clearObserve('p_01_01'); clearObserve('p_02_02');clearObserve('p_03_03');
+						clearObserve('p_04_04');clearObserve('p_05_05');
+						clearObserve('p_06_06');">复 原</button>
+				<br></br>
+			</ul>
+		</div>
+		
+		</br>
+		<div>
+			<a href="#C-TOP-2" class="buttonbookmark">回 到 廿 一 节</a>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-0', 'M-0')">经 文 21-48 节</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-2', 'M-2')">主 旨 探 索</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">有 福 了</button>
+		</div>
+		</br>
+		
+	</div>
+	<!-- 经 文 20:21-48 page -->
+	
+	<!-- 主 旨 探 索 -->
+	<div id="T-2" class="w3-container w3-border city">
+		<h3><span style="color:purple;">主 旨 探 索</span></h3>
+		<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+			<li style="border: .5px solid blue;">1. 请 大 家 分 享 一 下 , 在 马 太 福 音 五 章 , <span class="w3-yellow">那 一 个 主 题  / 重 点 最 引 起 你 的 注 的 意</span> ?</li>
+			<li style="border: .5px solid blue;">
+				<button onclick="myFunction('Quest_T_2_2')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+				<h7></h7>在 马 太 福 音 第 五 章 有 那 些 要 点 重 复 出 现</button>
+				<div id="Quest_T_2_2" class="w3-hide w3-container">
+					</br><span class="w3-yellow" style="font-weight:bold;">主 题 : 耶 稣 的 教 训</span></br>
+					</br><span style="color:darkblue; font-weight:bold;">==> </sapn><span class="w3-blue" style="font-weight:bold;">有 关 有 福 (它 的 性 质)</span>
+					</br><span style="color:darkblue; font-weight:bold;">==> 有 关 门 徒 (功 用)</span>
+					</br><span style="color:darkblue; font-weight:bold;">==> 有 关 律 法 / 诫 命 (你 们 听 见 有 话 说 -- 只 是 我 告 诉 你 们) ==> </span><span class="w3-green" style="font-weight:bold;">我 来 不 是 要 废 掉 、 乃 是 要 成 全</span>
+					</br><span style="color:darkblue; font-weight:bold;">==> </sapn><span class="w3-red" style="font-weight:bold;">有 关 天 国</span>
+				</div> 
+			</li>
+			<li style="border: .5px solid blue;">
+				<button onclick="myFunction('Quest_T_2_3')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+				<h7></h7>大 前 题</button>
+				<div id="Quest_T_2_3" class="w3-hide w3-container">
+					</br>
+					<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+						<li style="border: .5px solid green;">耶 稣 所 指 的 律 法 与 当 时 罗 马 社 会 的 法 律 有 何 不 同 ?</li>
+						<li style="border: .5px solid green;">耶 稣 所 讲 的 成 全 律 法 是 什 么 意 思 ?</li>
+						<li style="border: .5px solid green;">成 全 律 法 为 什 么 是 那 么 重 要 ?</li>
+						<li style="border: .5px solid green;">成 全 律 法 对 当 时 的 人 与 今 天 的 我 们 有 何 关 系 ?</li>
+						<li style="border: .5px solid green;"><span class="w3-yellow" style="font-weight:bold;">这 是 关 乎 天 国 的 问 题 , 你 在 乎 吗 ?</span></li>
+					</ul>
+				</div> 
+			</li>
+			<li style="border: .5px solid blue;">
+				<button class="buttonquest" onclick="showModalImage('keyword_Modal', 'keyword_Img01', 'keyword_Caption', 'Matthew5-keyword.JPG', '总 意 - 耶 稣 来 不 是 要 废 掉 律 法、 乃 是 要 成 全 , 要 我 们 要 完 全', 'keyword_Close')">按 个 人 领 受 - 详 细  (简 图)</button>
+				</br></br><button class="buttonquest" onclick="showModalImage('tree_Modal', 'tree_Img01', 'tree_Caption', 'Matthew5-tree.JPG', '总 意 - 耶 稣 成 为 我 们 的 义', 'tree_Close')">按 个 人 领 受 - 主 干 (简 图)</button>
+				</br></br><button class="buttonquest" onclick="showModalImage('keyword_2_Modal', 'keyword_2_Img01', 'keyword_2_Caption', 'Matthew5-keyword-2.JPG', '总 意 - 有 关 天 国 的 事 情', 'keyword_2_Close')">按 个 人 领 受 - 简 单 (简 图)</button>
+
+				<!-- content image -->
+				<!-- The Modal -->
+				<div id ="keyword_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="keyword_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="keyword_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="keyword_Caption"></div>
+				</div>
+				
+				<!-- content image -->
+				<!-- The Modal -->
+				<div id ="tree_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="tree_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="tree_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="tree_Caption"></div>
+				</div>
+				
+				<!-- content image -->
+				<!-- The Modal -->
+				<div id ="keyword_2_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="keyword_2_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="keyword_2_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="keyword_2_Caption"></div>
+				</div>
+				</br>
+			</li>
+			
+		</ul>
+
+		</br>
+		<div>			
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-0', 'M-0')">经 文 1-20 节</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-1', 'M-1')">经 文 21-48 节</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">有 福 了</button>
+		</div>	
+		</br>
+	</div>
+	
+  
+	<!-- Interactive page -->
+	<div id="T-3" class="w3-container w3-border city">
+		<h3><span style="color:purple;" id="TOP-ELEMENT">有 福 了 - 属 天 的 福</span></h3>
+		<button class="button button1" onclick="toggledraggable(1)">大 纲 参 考</button>
+		<button class="button button1" onclick="toggledraggable(2)">结 构 自 行 分 析</button>
+		<button class="button button1" onclick="toggledraggable(3)">平 行 对 比</button>
+		<a href="#CREATE-ELEMENT" class="buttonbookmark">输 入 新 的 元 素 名 称</a>
+		</br></br>
+		<div class="row">
+			<div class="col-sm-6" id="dragElement">
+				<div class="draggableBlock" id="moveSection_1" ondblclick="removeMyItem(id)">
+					<span class="draggableName">虚 心</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_2" ondblclick="removeMyItem(id)">
+					<span class="draggableName">哀 恸</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_3" ondblclick="removeMyItem(id)">
+					<span class="draggableName">温 柔</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_4" ondblclick="removeMyItem(id)">
+					<span class="draggableName">饥 渴 慕 义</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_5" ondblclick="removeMyItem(id)">
+					<span class="draggableName">怜 恤 人</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_6" ondblclick="removeMyItem(id)">
+					<span class="draggableName">清 心</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_7" ondblclick="removeMyItem(id)">
+					<span class="draggableName">使 人 和 睦</span>
+				</div>
+				</br></br>
+				<div class="draggableBlock" id="moveSection_8" ondblclick="removeMyItem(id)">
+					<span class="draggableName">为 义 受 逼 迫</span>
+				</div>	
+				</br></br>
+				<div id="addElement">
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="nonDraggableBlock" id="moveSection_0_1" style="display:none">
+					<span class="nonDraggableName-1">主 对 门 徒 的 教 训 (1-48)</span>
+				</div>
+				</br></br>
+				<div class="col-sm-12">
+					<div class="nonDraggableBlock" id="moveSection_0_1_1" style="display:none">
+						<span class="nonDraggableName-2">背 景 (1-2)</span>
+						<span class="nonDraggableName-5-1">叙 事</span>
+						<span class="nonDraggableName-5-1">教 训</span>
+					</div>
+					</br></br>
+					<div class="nonDraggableBlock" id="moveSection_0_1_2" style="display:none">
+						<span class="nonDraggableName-2">论 福 (3-10)</span>
+						<span class="nonDraggableName-5-1">八 福</span>
+						<span class="nonDraggableName-5-1">天 国</span>
+					</div>
+					</br></br>
+					<div class="col-sm-12">
+						<div class="nonDraggableBlock" id="moveSection_0_1_2_1" style="display:none">
+							<span class="nonDraggableName-3">虚 心</span>
+							<span class="nonDraggableName-3">哀 恸</span>
+							<span class="nonDraggableName-3">温 柔</span>
+							<span class="nonDraggableName-3">饥 渴 慕 义</span>
+						</div>
+						</br></br>
+						<div class="nonDraggableBlock" id="moveSection_0_1_2_2" style="display:none">
+							<span class="nonDraggableName-3">怜 恤 人</span>
+							<span class="nonDraggableName-3">清 心</span>
+							<span class="nonDraggableName-3">使 人 和 睦</span>
+							<span class="nonDraggableName-3">为 义 受 逼 迫</span>
+						</div>
+					</div>
+					</br></br></br></br>
+					<div class="nonDraggableBlock" id="moveSection_0_1_3" style="display:none">
+						<span class="nonDraggableName-2">特 征 (11-16)</span>
+						<span class="nonDraggableName-5-1">天 上</span>
+						<span class="nonDraggableName-5-1">天 父</span>
+					</div>
+					</br></br>
+					<div class="col-sm-12">
+						<div class="nonDraggableBlock" id="moveSection_0_1_3_1" style="display:none">
+							<span class="nonDraggableName-3">为 义 受 逼 迫</span>
+							<span class="nonDraggableName-3">世 上 的 盐</span>
+							<span class="nonDraggableName-3">世 上 的 光</span>
+						</div>
+					</div>
+					</br></br>
+					<div class="nonDraggableBlock" id="moveSection_0_1_4" style="display:none">
+						<span class="nonDraggableName-2">律 法 (17-48)</span>
+						<span class="nonDraggableName-1">祂 来 要 成 全 律 法</span>
+					</div>
+					</br></br>
+					<div class="col-sm-12">
+						<div class="nonDraggableBlock" id="moveSection_0_1_4_1" style="display:none">
+							<span class="nonDraggableName-3">成 全 (17-20)</span>
+							<span class="nonDraggableName-5-2">进 天 国</span>
+						</div>
+						</br></br>
+						<div class="col-sm-12">
+							<div class="nonDraggableBlock" id="moveSection_0_1_4_2" style="display:none">
+								<span class="nonDraggableName-4">例 一 (21-26)</span>
+								<span class="nonDraggableName-5-3">你 们 听 见</span>
+								<span class="nonDraggableName-5-3">我 告 诉 你 们</span>
+							</div>
+							</br></br>
+							<div class="nonDraggableBlock" id="moveSection_0_1_4_3" style="display:none">
+								<span class="nonDraggableName-4">例 二 (27-30)</span>
+								<span class="nonDraggableName-5-3">你 们 听 见</span>
+								<span class="nonDraggableName-5-3">我 告 诉 你 们</span>
+							</div>
+							</br></br>
+							<div class="nonDraggableBlock" id="moveSection_0_1_4_4" style="display:none">
+								<span class="nonDraggableName-4">例 三 (31-32)</span>
+								<span class="nonDraggableName-5-3">你 们 听 见</span>
+								<span class="nonDraggableName-5-3">我 告 诉 你 们</span>
+							</div>
+							</br></br>
+							<div class="nonDraggableBlock" id="moveSection_0_1_4_5" style="display:none">
+								<span class="nonDraggableName-4">例 四 (33-37)</span>
+								<span class="nonDraggableName-5-3">你 们 听 见</span>
+								<span class="nonDraggableName-5-3">我 告 诉 你 们</span>
+							</div>
+							</br></br>
+							<div class="nonDraggableBlock" id="moveSection_0_1_4_6" style="display:none">
+								<span class="nonDraggableName-4">例 五 (38-42)</span>
+								<span class="nonDraggableName-5-3">你 们 听 见</span>
+								<span class="nonDraggableName-5-3">我 告 诉 你 们</span>
+							</div>
+							</br></br>
+							<div class="nonDraggableBlock" id="moveSection_0_1_4_7" style="display:none">
+								<span class="nonDraggableName-4">例 六 (43-47)</span>
+								<span class="nonDraggableName-5-3">你 们 听 见</span>
+								<span class="nonDraggableName-5-3">我 告 诉 你 们</span>
+							</div>
+						</div>
+						</br></br></br></br></br></br></br></br></br></br></br></br>
+						<div class="nonDraggableBlock" id="moveSection_0_1_4_8" style="display:none">
+							<span class="nonDraggableName-3">完 全 (48)</span>
+							<span class="nonDraggableName-5-2">天 父</span>
+						</div>
+					</div>
+				</div>
+				
+				</br></br></br>
+				<div class="col-sm-12">
+
+				</div>
+			</div>
+		</div>		
+		
+		</br></br>
+		
+		<div class="border-box-4" id="CREATE-ELEMENT">
+			<label for="selfAddElement">新 的 元 素 名 称</label></br>
+			<input type="text" id="selfAddElement" name="selfAddElement" maxlength="20">
+			<select id="selfAddElementColor" name="selfAddElementColor">
+				<option value="green">green - 绿色</option>
+				<option value="red">red - 红色</option>
+				<option value="purple">purple - 紫色</option>
+				<option value="orange">orange - 橙色</option>
+				<option value="darkblue">darkblue - 深蓝色</option>
+				<option value="black">black - 黑色</option>
+				<option value="pink">pink - 粉红色</option>
+			</select>
+			<button class="button button1" id="enterElementButton" onclick="createAnElement('name2')">输 入</button>
+		</div>
+		</br>
+		<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-2', 'M-2')">主 旨 探 索</button>
+		<button class="button button1" onclick="toggledraggable(1)">大 纲 参 考</button>
+		<button class="button button1" onclick="toggledraggable(2)">结 构 自 行 分 析</button>
+		<button class="button button1" onclick="toggledraggable(3)">平 行 对 比</button>
+		<a href="#TOP-ELEMENT" class="buttonbookmark">回 到 上 面</a>
+		<button class="button button1" style="cursor: pointer;" onclick="OpenMenu(event,'T-4', 'M-4')">内 容 大 纲</button>
+		
+		</br></br>
+		
+		
+	</div>
+	<!-- Interactive page -->
+	
+	<!-- 内 容 大 纲 -->
+	<div id="T-4" class="w3-container w3-border city">
+	
+		<h3><span style="color:blue;">主 对 门 徒 的 教 训</span> - <span style="color:red;">有 福 , 见 证 , 完 全 , 满 足 律 法 的 义</span></h3>
+		<button class="buttonquest" onclick="showModalImage('contentModal', 'contentImg01', 'contentCaption', 'Matthew5-content.JPG', '内 容 大 纲', 'contentClose')">内 容 大 纲 (简 图)</button>
+		
+		<!-- content image -->
+		<!-- The Modal -->
+		<div id ="contentModal" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="contentClose">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="contentImg01">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="contentCaption"></div>
+		</div>
+		</br></br>
+	
+		<!-- sub 1: 1-2 -->
+		<button onclick="myFunction('C-1')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+		<h5>a. 叙 事: 背 景 (1-2):</h5></button>
+		
+		<div id="C-1" class="w3-hide w3-container">
+			</br>
+			<p>
+				1 <span id="C1_H_1_0">耶 稣</span> <span id="C1_H_1_2">看 见</span> 这 <span id="C1_H_2_0">许 多 的 人</span> 、 就 <span id="C1_H_2_2">上</span> 了 <span id="C1_H_1_1">山</span> 、 既 已 <span id="C1_H_3_2">坐</span> 下 、 <span id="C1_H_3_0">门 徒</span> 到 他 跟 前 来 。
+				<br></br>2 他 就 开 口 <span id="C1_H_4_2">教 训</span> 他 们 说 、
+			</p>
+			
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('bkgdModal', 'bkgdImg01', 'bkgdCaption', 'Matthew5-bkgd.JPG', '叙 事 背 景 : 时 间', 'bkgdClose')">叙 事 背 景 (时 间 when) (简 图)</button></li>
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C1_H_1_0', 'yellow');showHighlight('C1_H_2_0', 'yellow');showHighlight('C1_H_3_0', 'yellow');
+				">叙 事 背 景 (人 物 who)</button></li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C1_H_1_1', 'green');
+				">叙 事 背 景 (地 点 where)</button></li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C1_H_1_2', 'blue');showHighlight('C1_H_2_2', 'blue');
+					showHighlight('C1_H_3_2', 'blue');showHighlight('C1_H_4_2', 'red');
+				">叙 事 背 景 (行 动 what)</button></li>
+			</ul>
+		
+			<!-- content image -->
+			<!-- The Modal -->
+			<div id ="bkgdModal" class="jpg_modal" ondblclick="closeModal(id)">
+				<!-- The Close Button -->
+				<span class="jpg_close" id="bkgdClose">&times;</span>
+				<!-- Modal Content (The Image) -->
+				<img class="jpg_modal-content" id="bkgdImg01">
+				<!-- Modal Caption (Image Text) -->
+				<div class="jpg_caption" id="bkgdCaption"></div>
+			</div>
+			</br>			
+			
+		</div>
+	
+		<!-- sub 2: 3-10 -->
+		<button onclick="myFunction('C-2')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+		<h5>b. 内 容: 论 福	(3-10)</h5></button>
+
+		<div id="C-2" class="w3-hide w3-container">
+			</br>
+			<p>
+				3 <span id="quest_blessed_001"></span> <span id="C2_H_1_0">虚 心 的</span> <span id="C2_H_1_1">人</span>  <span id="C2_H_1_3">有 福 了</span> ．<span id="C2_H_1_5">因 为</span> <span id="C2_H_1_4">天 国 是 他 们 的</span> 。
+				<br></br>4 <span id="quest_blessed_002"></span> <span id="C2_H_2_0">哀 恸 的</span> <span id="C2_H_2_1">人</span>  <span id="C2_H_2_3">有 福 了</span> ．<span id="C2_H_2_5">因 为</span> <span id="C2_H_2_4">他 们 必 得 安 慰</span> 。
+				<br></br>5 <span id="quest_blessed_003"></span> <span id="C2_H_3_0">温 柔 的</span> <span id="C2_H_3_1">人</span>  <span id="C2_H_3_3">有 福 了</span> ．<span id="C2_H_3_5">因 为</span> <span id="C2_H_3_4">他 们 必 承 受 地 土</span> 。
+				<br></br>6 <span id="quest_blessed_004"></span> <span id="C2_H_4_0">饥 渴 慕 义 的</span> <span id="C2_H_4_1">人</span>  <span id="C2_H_4_3">有 福 了</span> ．<span id="C2_H_4_5">因 为</span> <span id="C2_H_4_4">他 们 必 得 饱 足</span> 。
+				<br></br>7 <span id="quest_blessed_005"></span> <span id="C2_H_5_0">怜 恤 人 的</span> <span id="C2_H_5_1">人</span>  <span id="C2_H_5_3">有 福 了</span> ．<span id="C2_H_5_5">因 为</span> <span id="C2_H_5_4">他 们 必 蒙 怜 恤</span> 。
+				<br></br>8 <span id="quest_blessed_006"></span> <span id="C2_H_6_0">清 心 的</span> <span id="C2_H_6_1">人</span>  <span id="C2_H_6_3">有 福 了</span> ．<span id="C2_H_6_5">因 为</span> <span id="C2_H_6_4">他 们 必 得 见 　神</span> 。
+				<br></br>9 <span id="quest_blessed_007"></span> <span id="C2_H_7_0">使 人 和 睦 的</span> <span id="C2_H_7_1">人</span>  <span id="C2_H_7_3">有 福 了</span> ．<span id="C2_H_7_5">因 为</span> <span id="C2_H_7_4">他 们 必 称 为 　神 的 儿 子</span> 。
+				<br></br>10 <span id="quest_blessed_008"></span> <span id="C2_H_8_0">为 义 受 逼 迫 的</span> <span id="C2_H_8_1">人</span>  <span id="C2_H_8_3">有 福 了</span> ．<span id="C2_H_8_5">因 为</span> <span id="C2_H_8_4">天 国 是 他 们 的</span> 。
+			</p>
+			
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showHighlight('C2_H_1_0', 'yellow');showHighlight('C2_H_1_1', 'red');showHighlight('C2_H_1_3', 'green');
+				showHighlight('C2_H_2_0', 'yellow');showHighlight('C2_H_2_1', 'red');showHighlight('C2_H_2_3', 'green');
+				showHighlight('C2_H_3_0', 'yellow');showHighlight('C2_H_3_1', 'red');showHighlight('C2_H_3_3', 'green');
+				showHighlight('C2_H_4_0', 'yellow');showHighlight('C2_H_4_1', 'red');showHighlight('C2_H_4_3', 'green');
+				showHighlight('C2_H_5_0', 'yellow');showHighlight('C2_H_5_1', 'red');showHighlight('C2_H_5_3', 'green');
+				showHighlight('C2_H_6_0', 'yellow');showHighlight('C2_H_6_1', 'red');showHighlight('C2_H_6_3', 'green');
+				showHighlight('C2_H_7_0', 'yellow');showHighlight('C2_H_7_1', 'red');showHighlight('C2_H_7_3', 'green');
+				showHighlight('C2_H_8_0', 'yellow');showHighlight('C2_H_8_1', 'red');showHighlight('C2_H_8_3', 'green');
+				showTheAnswer('quest_blessed_001','green','bold');showTheAnswer('quest_blessed_002','green','bold');
+				showTheAnswer('quest_blessed_003','green','bold');showTheAnswer('quest_blessed_004','green','bold');
+				showTheAnswer('quest_blessed_005','green','bold');showTheAnswer('quest_blessed_006','green','bold');
+				showTheAnswer('quest_blessed_007','green','bold');showTheAnswer('quest_blessed_008','green','bold');
+				">这 里 如 何 形 容 有 福</button></li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showHighlight('C2_H_1_4', 'yellow');showHighlight('C2_H_1_5', 'blue');
+				showHighlight('C2_H_2_4', 'yellow');showHighlight('C2_H_2_5', 'blue');
+				showHighlight('C2_H_3_4', 'yellow');showHighlight('C2_H_3_5', 'blue');
+				showHighlight('C2_H_4_4', 'yellow');showHighlight('C2_H_4_5', 'blue');
+				showHighlight('C2_H_5_4', 'yellow');showHighlight('C2_H_5_5', 'blue');
+				showHighlight('C2_H_6_4', 'yellow');showHighlight('C2_H_6_5', 'blue');
+				showHighlight('C2_H_7_4', 'yellow');showHighlight('C2_H_7_5', 'blue');
+				showHighlight('C2_H_8_4', 'yellow');showHighlight('C2_H_8_5', 'blue');
+				">在 那 方 面 蒙 福</button></li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('beatitudeModal', 'beatitudeImg01', 'beatitudeCaption', 'Matthew5-beatitude.JPG', '论 福', 'beatitudeClose')">论 福 (八 福 的 结 构 特 色) (简 图)</button></li>
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('blessMeanModal', 'blessMeanImg01', 'blessMeanCaption', 'Matthew5-blessMean.JPG', '八 福', 'blessMeanClose')">八 福 (简 图)</button></li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showTheAnswer('quest_blessed_009', 'red', 'bold');
+				">这 里 提 到 的 "福" 有 什 么 特 别 的 性 质 ?</button>
+				</br></br><span id = "quest_blessed_009"></span>
+				</li>
+
+				<li style="border: .5px solid blue;">
+				<button onclick="myFunction('C_2_Quest_blessed')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+				<h7></h7>有 福 的 人 是 ...</button>
+					<div id="C_2_Quest_blessed" class="w3-hide w3-container">
+					</br>
+					<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_011', 'darkgreen', 'bold');
+						">虚 心 的 人 (不 是 自 供 自 给) ... 天 国 是 他 们 的</button>
+						</br></br><span id = "quest_blessed_011"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_012', 'red', 'bold');
+						">哀 恸 的 人 (不 是 世 俗 的 忧 愁) ... 他 们 必 得 安 慰</button>
+						</br></br><span id = "quest_blessed_012"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_013', 'darkgreen', 'bold');
+						">温 柔 的 人 ... 他 们 必 承 受 地 土</button>
+						</br></br><span id = "quest_blessed_013"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_014', 'red', 'bold');
+						">饥 渴 慕 义 的 人 (不 是 自 以 为 义) ... 他 们 必 得 饱 足</button>
+						</br></br><span id = "quest_blessed_014"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_015', 'darkgreen', 'bold');
+						">怜 恤 人 的 人 ... 他 们 必 蒙 怜 恤</button>
+						</br></br><span id = "quest_blessed_015"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_016', 'red', 'bold');
+						">清 心 的 人 ... 他 们 必 得 见 　神</button>
+						</br></br><span id = "quest_blessed_016"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_017', 'darkgreen', 'bold');
+						">使 人 和 睦 的 人 ... 他 们 必 称 为 　神 的 儿 子</button>
+						</br></br><span id = "quest_blessed_017"></span>
+						</li>
+						
+						<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+						showTheAnswer('quest_blessed_018', 'red', 'bold');
+						">为 义 受 逼 迫 的 人 ... 天 国 是 他 们 的</button>
+						</br></br><span id = "quest_blessed_018"></span>
+						</li>
+					</ul>
+					</br>
+					</div> 
+				</li>
+				
+			</ul>
+		
+			<!-- content image -->
+			<!-- The Modal -->
+			<div id ="beatitudeModal" class="jpg_modal" ondblclick="closeModal(id)">
+				<!-- The Close Button -->
+				<span class="jpg_close" id="beatitudeClose">&times;</span>
+				<!-- Modal Content (The Image) -->
+				<img class="jpg_modal-content" id="beatitudeImg01">
+				<!-- Modal Caption (Image Text) -->
+				<div class="jpg_caption" id="beatitudeCaption"></div>
+			</div>
+			</br>
+			
+			<!-- content image -->
+			<!-- The Modal -->
+			<div id ="blessMeanModal" class="jpg_modal" ondblclick="closeModal(id)">
+				<!-- The Close Button -->
+				<span class="jpg_close" id="blessMeanClose">&times;</span>
+				<!-- Modal Content (The Image) -->
+				<img class="jpg_modal-content" id="blessMeanImg01">
+				<!-- Modal Caption (Image Text) -->
+				<div class="jpg_caption" id="blessMeanCaption"></div>
+			</div>
+			
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-50', 'M-50')">讨 论 一</button>
+			</br></br>
+		</div>
+		
+		<!-- sub 3: 11-16 -->
+		<button onclick="myFunction('C-3')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+		<h5>c. 内 容: 见 证 (11-16)</h5></button>
+
+		<div id="C-3" class="w3-hide w3-container">
+			</br>
+			<p>
+				11 人 若 <span id="C3_H_0_3">因 我 辱 骂</span> <span id="C3_H_1_1">你 们</span> 、 <span id="C3_H_0_1">逼 迫</span> <span id="C3_H_1_2">你 们</span> 、 <span id="C3_H_0_4">捏 造 各 样 坏 话 毁 谤</span> <span id="C3_H_1_3">你 们</span> 、 <span id="C3_H_1_4">你 们</span> 就 <span id="C3_H_2_1">有 福 了</span> 。
+				<br></br>12 <span id="C3_H_3_1">应 当 欢 喜 快 乐</span> ．因 为 <span id="C3_H_1_5">你 们</span> <span id="C3_H_3_2">在 天 上 的 赏 赐 是 大 的</span> ．在 <span id="C3_H_1_6">你 们</span> <span id="C3_H_3_3">以 前 的 先 知 、 人 也 是 这 样</span> <span id="C3_H_0_2">逼 迫</span> <span id="C3_H_3_4">他 们</span> 。
+				<br></br>13 <span id="C3_H_1_7">你 们</span> <span id="C3_H_4_1">是 世 上 的 盐</span> ．盐 若 失 了 味 、 怎 能 叫 他 再 咸 呢 ．以 后 无 用 、 不 过 丢 在 外 面 、 被 人 践 踏 了 。
+				<br></br>14 <span id="C3_H_1_8">你 们</span> <span id="C3_H_4_2">是 世 上 的 光</span> ．城 造 在 山 上 、 是 不 能 隐 藏 的 。
+				<br></br>15 <span class="C3_H_4_3">人 点 灯 、 不 放 在 斗 底 下 、 是 放 在 灯 台 上 、 就 照 亮 一 家 的 人 。</span>
+				<br></br>16 <span id="C3_H_1_9">你 们</span> 的 <span id="C3_H_5_5">光 也 当 这 样 照 在 人 前</span> 、 <span id="C3_H_5_1">叫 他 们 看 见</span> <span id="C3_H_1_10">你 们</span> 的 <span id="C3_H_5_2">好 行 为</span> 、 <span id="C3_H_5_3">便 将 荣 耀 归 给</span> <span id="C3_H_1_11">你 们</span> <span id="C3_H_5_4">在 天 上 的 父</span> 。
+			</p>
+			
+			<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showModalImage('persecuteModal', 'persecuteImg01', 'persecuteCaption', 'Matthew5-persecute.JPG', '为 义 受 逼 迫', 'persecuteClose')
+				">为 义 受 逼 迫 (承 接 上 文) (简 图)</button>
+				<button class="buttonquest" onclick="
+				showHighlight('C3_H_0_1', 'blue');showHighlight('C3_H_0_2', 'blue');
+				showHighlight('C3_H_0_3', 'blue');showHighlight('C3_H_0_4', 'blue');
+				">为 义 受 逼 迫</button>
+				</li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showHighlight('C3_H_1_1', 'red');showHighlight('C3_H_1_2', 'red');
+				showHighlight('C3_H_1_3', 'red');showHighlight('C3_H_1_4', 'red');
+				showHighlight('C3_H_1_5', 'red');showHighlight('C3_H_1_6', 'red');
+				showHighlight('C3_H_1_7', 'red');showHighlight('C3_H_1_8', 'red');
+				showHighlight('C3_H_1_9', 'red');showHighlight('C3_H_1_10', 'red');
+				showHighlight('C3_H_1_11', 'red');
+				">教 导 的 对 象 转 为 ...</button></li>				
+			
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showHighlight('C3_H_2_1', 'green')
+				">你 们 (门 徒) 是 有 福 的</button>
+				<button class="buttonquest" onclick="
+				showHighlight('C3_H_3_1', 'yellow');showHighlight('C3_H_3_2', 'yellow');
+				showHighlight('C3_H_3_3', 'yellow');showHighlight('C3_H_3_4', 'yellow');
+				">应 当 如 何 ? 为 什 么 ?</button>
+				</li>
+				
+				<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+				showHighlight('C3_H_4_1', 'purple');showHighlight('C3_H_4_2', 'purple');
+				showObserve('C3_H_4_3', 'red');
+				">门 徒 在 这 个 世 界 所 发 辉 的 功 用 ...</button>
+				<button class="buttonquest" onclick="
+				showHighlight('C3_H_5_1', 'purple');showHighlight('C3_H_5_2', 'orange');
+				showHighlight('C3_H_5_3', 'purple');showHighlight('C3_H_5_4', 'orange');
+				showHighlight('C3_H_5_5', 'purple');
+				">目 的 ...</button>
+				</li>
+			</ul>
+		
+
+			<!-- content image -->
+			<!-- The Modal -->
+			<div id ="persecuteModal" class="jpg_modal" ondblclick="closeModal(id)">
+				<!-- The Close Button -->
+				<span class="jpg_close" id="persecuteClose">&times;</span>
+				<!-- Modal Content (The Image) -->
+				<img class="jpg_modal-content" id="persecuteImg01">
+				<!-- Modal Caption (Image Text) -->
+				<div class="jpg_caption" id="persecuteCaption"></div>
+			</div>
+			</br>
+			
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-51', 'M-51')">讨 论 二</button>
+			</br></br>
+		</div>
+
+		<!-- sub 4: 17-48 -->
+		<button onclick="myFunction('C-4')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+		<h5>d. 内 容: 律 法 - 祂 来 要 成 全 律 法	(17-48)</h5></button>
+
+		<div id="C-4" class="w3-hide w3-container">
+		
+			<!-- law 1: 17-20 -->
+			<button onclick="myFunction('C-4-1')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>1. 成 全 : (17-20)</h5></button>
+	
+			<div id="C-4-1" class="w3-hide w3-container">
+				</br>
+				<p>
+				17 <span class="C4_H_1_1">莫 想 我 来 要 废 掉 律 法 和 先 知 ．我 来 不 是 要 废 掉 、 乃 是 要 成 全</span> 。
+				<br></br>18 <span id="C4_H_2_1">我 实 在 告 诉 你 们</span>  、 <span class="C4_H_3_0">就 是 到 天 地 都 废 去 了 、 律 法 的 一 点 一 画 也 不 能 废 去 、 都 要 成 全</span> 。
+				<br></br>19 <span id="C4_H_3_1">所 以</span> 无 论 何 人 废 掉 这 <span id="C4_H_3_2">诫 命</span> 中 最 小 的 一 条 、 又 教 训 人 这 样 作 、 他 在 天 国 要 称 为 最 小 的 ．但 无 论 何 人 遵 行 这 <span id="C4_H_3_3">诫 命</span> 、 又 教 训 人 遵 行 、 他 在 天 国 要 称 为 大 的 。
+				<br></br>20 <span id="C4_H_2_2">我 告 诉 你 们</span> 、 <span id="C4_H_3_4">你 们 的 义</span> 、 若  不 胜 于 文 士 和 法 利 赛 人 的 义 、 断 不 能 进 天 国 。
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showObserve('C4_H_1_1', 'red');
+					">耶 稣 主 要 的 论 述 ...</button>
+					</li>		
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_H_2_1', 'purple');showHighlight('C4_H_2_2', 'purple');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>			
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showObserve('C4_H_3_0', 'red');
+					showHighlight('C4_H_3_1', 'green');showHighlight('C4_H_3_2', 'red');
+					showHighlight('C4_H_3_3', 'red');showHighlight('C4_H_3_4', 'green');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>					
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('lawModal', 'lawImg01', 'lawCaption', 'Matthew5-law.JPG', '耶 稣 来 是 要 成 全 律 法 和 先 知', 'lawClose')">成 全 律 法 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image -->
+				<!-- The Modal -->
+				<div id ="lawModal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="lawClose">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="lawImg01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="lawCaption"></div>
+				</div>
+				</br>
+			</div>
+		
+			<!-- law 2: 21-26 -->
+			<button onclick="myFunction('C-4-2')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>2. 例 一 : (21-26)</h5></button>
+	
+			<div id="C-4-2" class="w3-hide w3-container">
+				</br>
+				<p>
+				21  <span id="C4_2_H_1_1">你 们 听 见 有 吩 咐 古 人 的 话 、 说</span> 、『 <span class="C4_2_H_1_2">不 可 杀 人 、</span>』 又 说 、 『 <span class="C4_2_H_1_3">凡 杀 人 的 、 难 免 受 审 判 。</span>』
+				<br></br>22 <span id="C4_2_H_2_1">只 是 我 告 诉 你 们</span> 、 <span class="C4_2_H_2_3">凡 向 弟 兄 动 怒 的 、 难 免 受 审 判</span> 。〔 有 古 卷 在 凡 字 下 添 无 缘 无 故 的 五 字 〕 <span class="C4_2_H_2_4">凡 骂 弟 兄 是 拉 加 的 、 难 免 公 会 的 审 断 ．</span> <span class="C4_2_H_2_5">凡 骂 弟 兄 是 魔 利 的 、 难 免 地 狱 的 火 。</span> 
+				<br></br>23 <span id="C4_2_H_3_1">所 以</span> 你 在 祭 坛 上 献 礼 物 的 时 候 、<span id="C4_2_H_3_2">若 想 起</span> 弟 兄 向 你 怀 怨 、
+				<br></br>24 <span id="C4_2_H_3_3">就</span> 把 礼 物 留 在 坛 前 、 <span id="C4_2_H_3_5">先 去 同 弟 兄 和 好</span> 、 然 后 来 献 礼 物 。
+				<br></br>25 你 同 告 你 的 对 头 还 在 路 上 、 <span id="C4_2_H_3_6">就 赶 紧 与 他 和 息</span> ． 恐 怕 他 把 你 送 给 审 判 官 、 审 判 官 交 付 衙 役 、 你 就 下 在 监 里 了 。
+				<br></br>26 <span id="C4_2_H_2_2">我 实 在 告 诉 你</span> 、 <span id="C4_2_H_3_4">若</span> 有 一 文 钱 没 有 还 清 、 你 断 不 能 从 那 里 出 来 。
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_2_H_1_1', 'blue');showObserve('C4_2_H_1_2', 'blue');showObserve('C4_2_H_1_3', 'blue');
+					">耶 稣 引 用 旧 约 教 训 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_2_H_2_1', 'purple');showHighlight('C4_2_H_2_2', 'purple');
+					showObserve('C4_2_H_2_3', 'red');showObserve('C4_2_H_2_4', 'red');showObserve('C4_2_H_2_5', 'red');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_2_H_3_1', 'green');showHighlight('C4_2_H_3_2', 'red');
+					showHighlight('C4_2_H_3_3', 'red');showHighlight('C4_2_H_3_4', 'red');
+					showHighlight('C4_2_H_3_5', 'yellow');showHighlight('C4_2_H_3_6', 'yellow');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_1_Modal', 'example_1_Img01', 'example_1_Caption', 'Matthew5-example-1.JPG', '不 可 杀 人 - 问 题 思 考', 'example_1_Close')">例 一 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image --
+				<!-- The Modal -->
+				<div id ="example_1_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="example_1_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="example_1_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="example_1_Caption"></div>
+				</div>
+				</br>
+				
+			</div>
+		
+			<!-- law 3: 27-30 -->
+			<button onclick="myFunction('C-4-3')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>3. 例 二 : (27-30)</h5></button>
+	
+			<div id="C-4-3" class="w3-hide w3-container">
+				</br>
+				<p>
+				27 <span id="C4_3_H_1_1">你 们 听 见 有 话 说</span> 、『 <span class="C4_3_H_1_2">不 可 奸 淫 。</span> 』
+				<br></br>28 <span id="C4_3_H_2_1">只 是 我 告 诉 你 们</span> 、 <span class="C4_3_H_2_2">凡 看 见 妇 女 就 动 淫 念 的 、 这 人 心 里 已 经 与 他 犯 奸 淫 了 。</span>
+				<br></br>29 <span id="C4_3_H_3_1">若</span> 是 你 的 右 眼 叫 你 跌 倒 、 就 剜 出 来 丢 掉 ． <span id="C4_3_H_3_2">宁 可 失 去 百 体 中 的 一 体</span>  、 <span id="C4_3_H_3_3">不 叫 全 身 丢 在 地 狱 里</span>  。
+				<br></br>30 <span id="C4_3_H_3_4">若</span> 是 右 手 叫 你 跌 倒 、 就 砍 下 来 丢 掉 ． <span id="C4_3_H_3_5">宁 可 失 去 百 体 中 的 一 体</span>  、 <span id="C4_3_H_3_6">不 叫 全 身 下 入 地 狱</span>  。
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_3_H_1_1', 'blue');showObserve('C4_3_H_1_2', 'blue');
+					">耶 稣 引 用 旧 约 教 训 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_3_H_2_1', 'purple');showObserve('C4_3_H_2_2', 'red');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_3_H_3_1', 'red');showHighlight('C4_3_H_3_2', 'green');showHighlight('C4_3_H_3_3', 'yellow');
+					showHighlight('C4_3_H_3_4', 'red');showHighlight('C4_3_H_3_5', 'green');showHighlight('C4_3_H_3_6', 'yellow');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_2_Modal', 'example_2_Img01', 'example_2_Caption', 'Matthew5-example-2.JPG', '不 可 奸 淫 - 问 题 思 考', 'example_2_Close')">例 二 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image -->
+				<!-- The Modal -->
+				<div id ="example_2_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="example_2_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="example_2_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="example_2_Caption"></div>
+				</div>
+				</br>
+				
+			</div>
+		
+			<!-- law 4: 31-32 -->
+			<button onclick="myFunction('C-4-4')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>4. 例 三 : (31-32)</h5></button>
+	
+			<div id="C-4-4" class="w3-hide w3-container">
+				</br>
+				<p>
+				31 <span id="C4_4_H_1_1">又 有 话 说</span> 、 <span class="C4_4_H_1_2">人 若 休 妻 、 就 当 给 他 休 书 。</span>
+				<br></br>32 <span id="C4_4_H_2_1">只 是 我 告 诉 你 们</span> 、 <span class="C4_4_H_3_1">凡 休 妻 的 、 若 不 是 为 淫 乱 的 缘 故 、 ​就 是 叫 他 作 淫 妇 了 ． 人 若 娶 这 被 休 的 妇 人 、 也 是 犯 奸 淫 了 。</span>
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_4_H_1_1', 'blue');showObserve('C4_4_H_1_2', 'blue');
+					">耶 稣 引 用 教 训 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_4_H_2_1', 'purple');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showObserve('C4_4_H_3_1', 'red');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_3_Modal', 'example_3_Img01', 'example_3_Caption', 'Matthew5-example-3.JPG', '有 关 离 婚 - 问 题 思 考', 'example_3_Close')">例 三 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image --
+				<!-- The Modal -->
+				<div id ="example_3_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="example_3_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="example_3_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="example_3_Caption"></div>
+				</div>
+				</br>
+				
+			</div>
+			
+			<!-- law 5: 33-37 -->
+			<button onclick="myFunction('C-4-5')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>5. 例 四 : (33-37)</h5></button>
+	
+			<div id="C-4-5" class="w3-hide w3-container">
+				</br>
+				<p>
+				33 <span id="C4_5_H_1_1">你 们 又 听 见 有 吩 咐 古 人 的 话 、 说</span> 、『 <span class="C4_5_H_1_2">不 可 背 誓 、 所 起 的 誓 、 总 要 向 主 谨 守 。</span>』
+				<br></br>34 <span id="C4_5_H_2_1">只 是 我 告 诉 你 们</span> 、 <span class="C4_5_H_3_1">什 么 誓 都 不 可 起</span> 、<span id="C4_5_H_3_2">不 可 指 着 天 起 誓</span> 、 <span id="C4_5_H_3_3">因 为 天 是 　 神 的 座 位</span> ．
+				<br></br>35 <span id="C4_5_H_3_4">不 可 指 着 地 起 誓</span> 、 <span id="C4_5_H_3_5">因 为 地 是 他 的 脚 凳</span> ． <span id="C4_5_H_3_6">也 不 可 指 着 耶 路 撒 冷 起 誓</span> 、 <span id="C4_5_H_3_7">因 为 耶 路 撒 冷 是 大 君 的 京 城</span> 。
+				<br></br>36 <span id="C4_5_H_3_8">又 不 可 指 着 你 的 头 起 誓</span> 、 <span id="C4_5_H_3_9">因 为 你 不 能 使 一 根 头 发 变 黑 变 白 了</span> 。
+				<br></br>37 <span class="C4_5_H_3_10">你 们 的 话 、 是 、 就 说 是 ． 不 是 、 就 说 不 是 ．</span> 若 再 多 说 、 就 是 出 于 那 恶 者 。〔 或 作 是 从 恶 里 出 来 的 〕
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_5_H_1_1', 'blue');showObserve('C4_5_H_1_2', 'blue');
+					">耶 稣 引 用 旧 约 教 训 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_5_H_2_1', 'purple');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showObserve('C4_5_H_3_1', 'red');
+					showHighlight('C4_5_H_3_2', 'green');showHighlight('C4_5_H_3_3', 'yellow');
+					showHighlight('C4_5_H_3_4', 'green');showHighlight('C4_5_H_3_5', 'yellow');
+					showHighlight('C4_5_H_3_6', 'green');showHighlight('C4_5_H_3_7', 'yellow');
+					showHighlight('C4_5_H_3_8', 'green');showHighlight('C4_5_H_3_9', 'yellow');
+					showObserve('C4_5_H_3_10', 'red');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_4_Modal', 'example_4_Img01', 'example_4_Caption', 'Matthew5-example-4.JPG', '不 可 背 誓 - 问 题 思 考', 'example_4_Close')">例 四 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image --
+				<!-- The Modal -->
+				<div id ="example_4_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="example_4_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="example_4_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="example_4_Caption"></div>
+				</div>
+				</br>
+				
+			</div>
+			
+			<!-- law 6: 38-42 -->
+			<button onclick="myFunction('C-4-6')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>6. 例 五 : (38-42)</h5></button>
+	
+			<div id="C-4-6" class="w3-hide w3-container">
+				</br>
+				<p>
+				38 <span id="C4_6_H_1_1">你 们 听 见 有 话 说</span> 、『 <span class="C4_6_H_1_2">以 眼 还 眼 、 以 牙 还 牙 。</span> 』
+				<br></br>39 <span id="C4_6_H_2_1">只 是 我 告 诉 你 们</span> 、 <span class="C4_6_H_3_1">不 要 与 恶 人 作 对</span> ． <span id="C4_6_H_3_2">有 人 打 你 的 右 脸</span> 、 <span id="C4_6_H_3_3">连 左 脸 也 转 过 来 由 他 打</span> 。
+				<br></br>40 <span id="C4_6_H_3_4">有 人 想 要 告 你</span> 、 <span id="C4_6_H_3_5">要 拿 你 的 里 衣 、 连 外 衣 也 由 他 拿 去</span> 。
+				<br></br>41 <span id="C4_6_H_3_6">有 人 强 逼 你 走 一 里 路</span> 、 <span id="C4_6_H_3_7">你 就 同 他 走 二 里</span>。
+				<br></br>42 <span id="C4_6_H_3_8">有 求 你 的</span> 、 <span id="C4_6_H_3_9">就 给 他</span> ． <span id="C4_6_H_3_10">有 向 你 借 贷 的</span> 、 <span id="C4_6_H_3_11">不 可 推 辞</span> 。
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_6_H_1_1', 'blue');showObserve('C4_6_H_1_2', 'blue');
+					">耶 稣 引 用 旧 约 教 训 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_6_H_2_1', 'purple');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showObserve('C4_6_H_3_1', 'red');
+					showHighlight('C4_6_H_3_2', 'green');showHighlight('C4_6_H_3_3', 'yellow');
+					showHighlight('C4_6_H_3_4', 'green');showHighlight('C4_6_H_3_5', 'yellow');
+					showHighlight('C4_6_H_3_6', 'green');showHighlight('C4_6_H_3_7', 'yellow');
+					showHighlight('C4_6_H_3_8', 'green');showHighlight('C4_6_H_3_9', 'yellow');
+					showHighlight('C4_6_H_3_10', 'green');showHighlight('C4_6_H_3_11', 'yellow');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_5_Modal', 'example_5_Img01', 'example_5_Caption', 'Matthew5-example-5.JPG', '有 关 报 复 - 问 题 思 考', 'example_5_Close')">例 五 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image --
+				<!-- The Modal -->
+				<div id ="example_5_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="example_5_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="example_5_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="example_5_Caption"></div>
+				</div>
+				</br>
+				
+			</div>
+			
+			<!-- law 7: 43-47 -->
+			<button onclick="myFunction('C-4-7')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>7. 例 六 : (43-47)</h5></button>
+	
+			<div id="C-4-7" class="w3-hide w3-container">
+				</br>
+				<p>
+				43 <span id="C4_7_H_1_1">你 们 听 见 有 话 说</span> 、『 <span class="C4_7_H_1_2">当 爱 你 的 邻 舍 、 恨 你 的 仇 敌 。</span> 』
+				<br></br>44 <span id="C4_7_H_2_1">只 是 我 告 诉 你 们</span> 、 <span class="C4_7_H_3_1">要 爱 你 们 的 仇 敌 ． 为 那 逼 迫 你 们 的 祷 告 。</span>
+				<br></br>45 <span id="C4_7_H_3_2">这 样 、 就 可 以 作 你 们 天 父 的 儿 子</span> ． <span id="C4_7_H_3_3">因 为</span> 他 叫 日 头 照 好 人 、也 照 歹 人 、降 雨 给 义 人 、 也 给 不 义 的 人 。
+				<br></br>46 <span id="C4_7_H_3_4">你 们 若 单 爱 那 爱 你 们 的 人 ． 有 什 么 赏 赐 呢</span> ． <span id="C4_7_H_3_5">就 是 税 吏 不 也 是 这 样 行 么</span> 。
+				<br></br>47 <span id="C4_7_H_3_6">你 们 若 单 请 你 弟 兄 的 安 、 比 人 有 什 么 长 处 呢</span> ． <span id="C4_7_H_3_7">就 是 外 邦 人 不 也 是 这 样 行 么</span> 。
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_7_H_1_1', 'blue');showObserve('C4_7_H_1_2', 'blue');
+					">耶 稣 引 用 旧 约 教 训 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_7_H_2_1', 'purple');
+					">耶 稣 告 诉 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showObserve('C4_7_H_3_1', 'red');
+					showHighlight('C4_7_H_3_2', 'red');showHighlight('C4_7_H_3_3', 'red');
+					showHighlight('C4_7_H_3_4', 'green');showHighlight('C4_7_H_3_5', 'yellow');
+					showHighlight('C4_7_H_3_6', 'green');showHighlight('C4_7_H_3_7', 'yellow');
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_6_Modal', 'example_6_Img01', 'example_6_Caption', 'Matthew5-example-6.JPG', '有 关 爱 - 问 题 思 考', 'example_6_Close')">例 六 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image --
+				<!-- The Modal -->
+				<div id ="example_6_Modal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="example_6_Close">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="example_6_Img01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="example_6_Caption"></div>
+				</div>
+				</br>
+				
+			</div>
+			
+			<!-- law 8: 48 -->
+			<button onclick="myFunction('C-4-8')" class="w3-button w3-block w3-left-align w3-light-blue test" style="border: 1px solid darkblue;">
+			<h5>8. 完 全 : (48)</h5></button>
+	
+			<div id="C-4-8" class="w3-hide w3-container">
+				</br>
+				<p>
+				48 <span id="C4_8_H_1_1">所 以</span> <span class="C4_8_H_1_2">你 们 要 完 全</span> 、 <span id="C4_8_H_1_3">像 你 们 的 天 父 完 全 一 样</span> 。
+				</p>
+				
+				<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="
+					showHighlight('C4_8_H_1_1', 'red');showObserve('C4_8_H_1_2', 'red');
+					showHighlight('C4_8_H_1_3', 'green')
+					">耶 稣 教 训 门 徒 ...</button>
+					</li>
+					<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('completeModal', 'completeImg01', 'completeCaption', 'Matthew5-complete.JPG', '所 以 你 们 要 完 全 、 像 你 们 的 天 父 完 全 一 样 - 问 题 思 考', 'completeClose')">要 完 全 (问 题 思 考) (简 图)</button></li>
+				</ul>
+		
+				<!-- content image --
+				<!-- The Modal -->
+				<div id ="completeModal" class="jpg_modal" ondblclick="closeModal(id)">
+					<!-- The Close Button -->
+					<span class="jpg_close" id="completeClose">&times;</span>
+					<!-- Modal Content (The Image) -->
+					<img class="jpg_modal-content" id="completeImg01">
+					<!-- Modal Caption (Image Text) -->
+					<div class="jpg_caption" id="completeCaption"></div>
+				</div>
+				</br>
+				
+			</div>
+		
+		</div> <!-- C-4 -->
+		
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="law2Modal" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="law2Close">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="law2Img01">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="law2Caption"></div>
+		</div>
+		</br>
+		<button class="buttonquest" onclick="showModalImage('law2Modal', 'law2Img01', 'law2Caption', 'Matthew5-law-2.JPG', '所 以 你 们 要 完 全 、 像 你 们 的 天 父 完 全 一 样 - 问 题 思 考', 'law2Close')">像 你 们 的 天 父 (问 题 思 考) (简 图)</button>
+		</br>
+		
+		</br>
+		<div>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-3', 'M-3')">有 福 了</button>
+			<button class="button button1" style="cursor: pointer;" onclick="openCity(event,'T-100', 'M-100')">总 论</button>
+		</div>
+		</br>
+
+	</div>
+	<!-- 内 容 大 纲 -->
+	
+	<!-- 问 题 思 考 一 -->
+	<div id="T-50" class="w3-container w3-border city">
+		<h3><span style="color:purple;">问 题 思 考 / 讨 论 一: 论福 (3-10)</span></h3>
+		<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+			<li style="border: .5px solid green;">人 们 称 这 里 为 八 福 , 为 什 么 不 把 十 一 节 归 入 为 九 福 ?</li>
+			<li style="border: .5px solid green;">那 你 认 为 什 么 是 有 福 的 , 那 一 个 对 你 是 十 分 之 重 要 ?</li>
+			<li style="border: .5px solid green;">你 认 为 的 福 , 与 耶 稣 所 讲 的 , 有 没 有 什 么 不 同 的 地 方 ?</li>
+			<li style="border: .5px solid green;">耶 稣 所 讲 有 福 了 , 为 什 么 是 这 样 的 人 将 会 有 这 样 的 福 ?</li>
+			<li style="border: .5px solid green;">你 现 在 有 没 有 缺 少 的 地 方 ?</li>
+			<li style="border: .5px solid green;">你 现 在 有 没 有 缺 少 的 地 方 ?</li>
+			<li style="border: .5px solid green;">你 愿 意 成 为 一 个 耶 稣 所 讲 的 , 这 样 有 福 的 人 吗 ?</li>
+		</ul>
+		</br>
+		<button class="button button1" style="cursor: pointer;" onclick="OpenMenu(event,'T-4', 'M-4')">内 容 大 纲</button>
+		</br></br>
+	</div>
+	
+	<!-- 问 题 思 考 二 -->
+	<div id="T-51" class="w3-container w3-border city">
+		<h3><span style="color:purple;">问 题 思 考 / 讨 论 二: 论福 (11-16)</span></h3>
+		<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+			<li style="border: .5px solid green;">试 问 当 人 落 在 逼 迫 当 中 能 够 欢 喜 快 乐 ? 动 力 在 那 里 ?</li>
+			<li style="border: .5px solid green;">你 今 天 是 一 个 有 福 的 人 吗 ? 为 什 么 ?</li>
+			<li style="border: .5px solid green;">你 认 为 上 好 的 福 是 建 立 在 那 个 根 基 之 上 ?</li>
+			<li style="border: .5px solid green;">你 现 在 所 顾 念 的 福 是 在 那 里 ?</li>
+			<li style="border: .5px solid blue;">
+				<button onclick="myFunction('Quest_T_51_5')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+				<h7></h7>你 们 是 世 上 的 盐 , 你 们 是 世 上 的 光 (13-16)</button>
+				<div id="Quest_T_51_5" class="w3-hide w3-container">
+					</br>
+					<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+						<li style="border: .5px solid green;">是 世 上 的 盐 : 有 什 么 功 用 ?</li>
+						<li style="border: .5px solid green;">是 世 上 的 光 : 有 什 么 功 用 ?</li>
+						<li style="border: .5px solid green;">门 徒 应 有 的 好 行 为 包 括 啥 ?</li>
+						<li style="border: .5px solid green;">门 徒 好 行 为 的 功 用 与 目 的 ?</li>
+					</ul>
+					</br>
+				</div> 
+			</li>
+		</ul>
+		</br>
+		<button class="button button1" style="cursor: pointer;" onclick="OpenMenu(event,'T-4', 'M-4')">内 容 大 纲</button>
+		</br></br>
+	</div>
+	
+	<!-- 其 它 讨 论 -->
+	<div id="T-55" class="w3-container w3-border city">
+		<h3><span style="color:purple;">其 它 讨 论</span></h3>
+		<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_1_Modal_sum', 'example_1_Img01_sum', 'example_1_Caption_sum', 'Matthew5-example-1.JPG', '不 可 杀 人 - 问 题 思 考', 'example_1_Close_sum','pass')">例 一 (问 题 思 考) (简 图)</button></li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_2_Modal_sum', 'example_2_Img01_sum', 'example_2_Caption_sum', 'Matthew5-example-2.JPG', '不 可 奸 淫 - 问 题 思 考', 'example_2_Close_sum','pass')">例 二 (问 题 思 考) (简 图)</button></li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_3_Modal_sum', 'example_3_Img01_sum', 'example_3_Caption_sum', 'Matthew5-example-3.JPG', '有 关 离 婚 - 问 题 思 考', 'example_3_Close_sum','pass')">例 三 (问 题 思 考) (简 图)</button></li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_4_Modal_sum', 'example_4_Img01_sum', 'example_4_Caption_sum', 'Matthew5-example-4.JPG', '不 可 背 誓 - 问 题 思 考', 'example_4_Close_sum','pass')">例 四 (问 题 思 考) (简 图)</button></li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_5_Modal_sum', 'example_5_Img01_sum', 'example_5_Caption_sum', 'Matthew5-example-5.JPG', '有 关 报 复 - 问 题 思 考', 'example_5_Close_sum','pass')">例 五 (问 题 思 考) (简 图)</button></li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('example_6_Modal_sum', 'example_6_Img01_sum', 'example_6_Caption_sum', 'Matthew5-example-6.JPG', '有 关 爱 - 问 题 思 考', 'example_6_Close_sum','pass')">例 六 (问 题 思 考) (简 图)</button></li>
+		</ul>
+		</br>
+		<button class="button button1" style="cursor: pointer;" onclick="OpenMenu(event,'T-4', 'M-4')">内 容 大 纲</button>
+		</br></br>
+
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="example_1_Modal_sum" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="example_1_Close_sum">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="example_1_Img01_sum">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="example_1_Caption_sum"></div>
+		</div>
+				
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="example_2_Modal_sum" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="example_2_Close_sum">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="example_2_Img01_sum">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="example_2_Caption_sum"></div>
+		</div>
+				
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="example_3_Modal_sum" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="example_3_Close_sum">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="example_3_Img01_sum">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="example_3_Caption_sum"></div>
+		</div>
+				
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="example_4_Modal_sum" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="example_4_Close_sum">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="example_4_Img01_sum">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="example_4_Caption_sum"></div>
+		</div>
+				
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="example_5_Modal_sum" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="example_5_Close_sum">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="example_5_Img01_sum">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="example_5_Caption_sum"></div>
+		</div>
+				
+		<!-- content image --
+		<!-- The Modal -->
+		<div id ="example_6_Modal_sum" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="example_6_Close_sum">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="example_6_Img01_sum">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="example_6_Caption_sum"></div>
+		</div>
+		
+	</div>
+		
+	<!-- 总 论 -->
+	<div id="T-100" class="w3-container w3-border city">
+		<h3><span style="color:purple;">总 论: 耶 稣 成 全 律 法 - 满 足 律 法 的 义</span></h3>
+		<ul class="w3-ul w3-card" style="width:100%; border: 2px solid darkblue;">
+			<li style="border: .5px solid green;">今 天, 你 已 经 是 一 个 信 主 的 人 吗 ?</li>
+			<li style="border: .5px solid green;">今 天, 你 要 成 为 一 个 有 福 的 人 吗 ?</li>
+			<li style="border: .5px solid green;">今 天, 你 想 成 为 一 个 信 主 的 人 吗 ?</li>
+			<li style="border: .5px solid green;">今 天, 你 是 否 有 一 颗 心 志 要 完 全 ?</li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('concModal', 'concImg01', 'concCaption', 'Matthew5-conc.JPG', '总 结 思 考', 'concClose')">总 结 思 考 (简 图)</button></li>
+			<li style="border: .5px solid blue;">
+				<button onclick="myFunction('Quest_T_100_5')" class="w3-button w3-block w3-left-align w3-green" style="border: 1px solid darkblue;">
+				<h7></h7>在 圣 经 上 的 律 法 (道 德, 礼 仪, 司 法), 耶 稣 都 成 全 了</button>
+				<div id="Quest_T_100_5" class="w3-hide w3-container">
+					</br>
+					他 就 开 口 教 训 他 们 说 … (5:2)
+					</br></br>
+					<ul class="w3-ul w3-card" style="width:100%; border: 2px solid green;">
+						<li style="border: .5px solid green;">这 个 教 训 对 门 徒 有 什 么 含 意 ?</li>
+						<li style="border: .5px solid green;">这 个 教 训 对 你 又 有 什 么 含 意 ?</li>
+						<li style="border: .5px solid green;">律 法 的 总 结 是 什 么 ?</li>
+					</ul>
+					</br>
+				</div> 
+			</li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showTheAnswer('quest_Conc_01','red','bold')">内 容 总 结</button>&nbsp;<span id = "quest_Conc_01"></span></li>
+			<li style="border: .5px solid green;"><button class="buttonquest" onclick="showModalImage('respModal', 'respImg01', 'respCaption', 'Matthew5-resp.JPG', '你 对 耶 稣 的 回 应 ?', 'respClose')">今 天 , 你 对 耶 稣 的 回 应 (简 图)</button></li>
+			
+		</ul>
+		</br>
+				
+		<!-- content image -->
+		<!-- The Modal -->
+		<div id ="concModal" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="concClose">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="concImg01">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="concCaption"></div>
+		</div>
+		
+		<!-- content image -->
+		<!-- The Modal -->
+		<div id ="respModal" class="jpg_modal" ondblclick="closeModal(id)">
+			<!-- The Close Button -->
+			<span class="jpg_close" id="respClose">&times;</span>
+			<!-- Modal Content (The Image) -->
+			<img class="jpg_modal-content" id="respImg01">
+			<!-- Modal Caption (Image Text) -->
+			<div class="jpg_caption" id="respCaption"></div>
+		</div>
+
+		<button class="button button1" style="cursor: pointer;" onclick="OpenMenu(event,'T-4', 'M-4')">内 容 大 纲</button>		
+		</br></br>
+	</div>
+  
+</div>
+<!-- main content -->
+
+</br>
+
+<!-- bottom menu -->
+<div class="w3-container">
+	<p><a href=".\..\..\nt.html" class="buttonback">新 约</a> <a href=".\..\matthew.html" class="buttonback">马 太 福 音</a></p>
+	</br></br>
+</div>
+<!-- bottom menu -->
+
+<script>
+window.onscroll = function() {myMenuFunction()};
+var menubar = document.getElementById("menubar");
+var stickymenu = menubar.offsetTop;
+
+var answerMap = new Map();
+answerMap.set('quest_blessed_001','[Blessed are]');
+answerMap.set('quest_blessed_002','[Blessed are]');
+answerMap.set('quest_blessed_003','[Blessed are]');
+answerMap.set('quest_blessed_004','[Blessed are]');
+answerMap.set('quest_blessed_005','[Blessed are]');
+answerMap.set('quest_blessed_006','[Blessed are]');
+answerMap.set('quest_blessed_007','[Blessed are]');
+answerMap.set('quest_blessed_008','[Blessed are]');
+answerMap.set('quest_blessed_009','有 属 灵 方 面 的 经 历 与 天 父 的 关 系 [天 国 是 他 们 的 ... 天 国 是 他 们 的], ==> 以 神 作 他 们 的 王');
+answerMap.set('quest_blessed_011','[主耶和华的灵在我身上．因为耶和华用膏膏我、叫我传好信息给谦卑的人、〔或作传福音给贫穷的人〕差遣我医好伤心的人、报告被掳的得释放、被囚的出监牢． (赛 61:1)]; 要先看见远离神, 在灵里是破产的, 缺乏的');
+answerMap.set('quest_blessed_012','[报告耶和华的恩年、和我们　神报仇的日子、安慰一切悲哀的人． (赛 61:2)]; 为罪哀恸的人是有福的; [因为依着　神的意思忧愁、就生出没有后悔的懊悔来、以致得救．但世俗的忧愁、是叫人死。 (林后 7:10)]');
+answerMap.set('quest_blessed_013','[但谦卑人必承受地土、以丰盛的平安为乐。 (诗 37:11), But the meek shall inherit the land and delight themselves in abundant peace. (Psalm 37:11 ESV)]');
+answerMap.set('quest_blessed_014','并且得以在他里面、不是有自己因律法而得的义、乃是有信基督的义、就是因信　神而来的义． (腓 3:9)');
+answerMap.set('quest_blessed_015','6 耶和华在他面前宣告说、耶和华、耶和华、是有怜悯、有恩典的　神、不轻易发怒、并有丰盛的慈爱和诚实。 (出 34:6)');
+answerMap.set('quest_blessed_016','3 谁能登耶和华的山．谁能站在他的圣所． 4 就是手洁心清、不向虚妄、起誓不怀诡诈的人。 5 他必蒙耶和华赐福、又蒙救他的　神使他成义。 (诗 24:3-5)');
+answerMap.set('quest_blessed_017','16 既在十字架上灭了冤仇、便借这十字架、使两下归为一体、与　神和好了． 17 并且来传和平的福音给你们远处的人、也给那近处的人。弗 2:16-17)');
+answerMap.set('quest_blessed_018','12 亲爱的弟兄阿、有火炼的试验临到你们、不要以为奇怪、（似乎是遭遇非常的事） 13 倒要欢喜．因为你们是与基督一同受苦、使你们在他荣耀显现的时候、也可以欢喜快乐。 14 你们若为基督的名受辱骂、便是有福的．因为　神荣耀的灵、常住在你们身上。 (彼前 4:12-14)');
+answerMap.set('quest_Conc_01','律 法 的 总 结 就 是 基 督 、 使 凡 信 他 的 都 得 着 义 。(罗 马 书 10:4)');
+
+var bucket_source_1 = "bucket_source_1";
+var bucket_target_1 = "bucket_target_1";
+var bucket_target_1_cols = ["drag1", "drag3"];
+var date_to_show = '08/07/2020';
+var date_enable = new Date(date_to_show);
+var date_today = new Date();
+var newElementNameNumber = 8;
+var maxElementNum = 100;
+
+function closeModal(myModalDivId) {
+	var modal = document.getElementById(myModalDivId);
+	modal.style.display = "none";
+}
+
+function showModalImage(myModalDivId, imgId, captionDivId, imageSrc, captionInfo, closeId, pass) {
+	
+	if (date_enable > date_today && pass != 'pass') {
+		alert ("请注意: 这个功能/显示, 要在" + date_to_show + " 才能打开 / 开通 You could only open / use this feature on " + date_to_show);
+		return;
+	}
+
+	// Get the modal
+	var modal = document.getElementById(myModalDivId);
+	var modalImg = document.getElementById(imgId);
+	var captionText = document.getElementById(captionDivId);
+	modal.style.display = "block";
+	modalImg.src = imageSrc;
+	captionText.innerHTML = captionInfo;
+		
+	// Get the <span> element that closes the modal
+	var spanClose = document.getElementsByClassName("jpg_close");
+	for (var i=0; i < spanClose.length; i++) {
+		if (spanClose[i].id == closeId) {
+			// When the user clicks on <span> (x), close the modal
+			spanClose[i].onclick = function() { 
+				modal.style.display = "none";
+			}
+		break;
+		}
+	}
+}
+
+
+function showTheAnswer(id, color, weight) {
+  var x = document.getElementById(id);
+  if (x.innerHTML === "") {
+	 x.innerHTML = answerMap.get(id);
+	 if (color != '') {
+		x.style.color = color;
+	 }
+	 if (weight != '') {
+		x.style.fontWeight = weight;
+	 }
+  } else {
+	 x.innerHTML = "";
+  }
+}
+
+function myMenuFunction() {
+  if (window.pageYOffset >= stickymenu) {
+    menubar.classList.add("stickymenu");
+  } else {
+    menubar.classList.remove("stickymenu");
+  }
+}
+
+function OpenMenu(event, tmenu, id, source) {
+	if (date_enable > date_today) {
+		alert ("请注意: 这个功能/显示, 要在" + date_to_show + " 才能打开 / 开通 You could only open / use this feature on " + date_to_show);
+		return;
+	}
+	openCity(event, tmenu, id, source);
+}
+
+function createAnElement(name) {
+	var newElementName = (document.getElementById("selfAddElement").value).trim();
+	if (newElementName == '') {
+		alert ("请 输 入 新 的 元 素 名 称 - Please enter a new name to create");
+		return;
+	}
+	newElementNameNumber = newElementNameNumber + 1;
+	if (newElementNameNumber > maxElementNum) {
+		alert ("最 多 只 能 够 新 增 50 个 元 素 - Sorry, you are allowed to create no more than 50 new elements");
+		return;
+	}
+	var newElementId = "newElementId_" + newElementNameNumber;
+	var newElementColorClass;
+	switch (document.getElementById("selfAddElementColor").value) {
+		case "green":
+			newElementColorClass = "draggableName-green";
+			break;
+		case "red":
+			newElementColorClass = "draggableName-red";
+			break;
+		case "purple":
+			newElementColorClass = "draggableName-purple";
+			break;
+		case "orange":
+			newElementColorClass = "draggableName-orange";
+			break;
+		case "darkblue":
+			newElementColorClass = "draggableName-darkblue";
+			break;
+		case "black":
+			newElementColorClass = "draggableName-black";
+			break;
+		case "pink":
+			newElementColorClass = "draggableName-pink";
+			break;
+		default:
+			newElementColorClass = "draggableName-green";
+	}
+	// start with a new divion
+	var newSection = document.createElement("div");
+	newSection.setAttribute("class", "draggableBlock");
+	newSection.setAttribute("id", newElementId);
+	newSection.setAttribute("ondblclick", "removeMyItem(id)");
+	document.getElementById("addElement").appendChild(newSection);
+	// start with a new span
+	var newSpan = document.createElement("span");
+	newSpan.innerHTML = newElementName;
+	newSpan.setAttribute("class", newElementColorClass);
+	document.getElementById(newElementId).appendChild(newSpan);
+
+	var aline1 = document.createElement("br");
+	var aline2 = document.createElement("br");
+	document.getElementById("addElement").appendChild(aline1);
+	document.getElementById("addElement").appendChild(aline2);
+	dragElement(document.getElementById(newElementId));
+	document.getElementById("selfAddElement").value = '';
+}
+
+dragElement(document.getElementById("moveSection_1"));
+dragElement(document.getElementById("moveSection_2"));
+dragElement(document.getElementById("moveSection_3"));
+dragElement(document.getElementById("moveSection_4"));
+dragElement(document.getElementById("moveSection_5"));
+dragElement(document.getElementById("moveSection_6"));
+dragElement(document.getElementById("moveSection_7"));
+dragElement(document.getElementById("moveSection_8"));
+
+function toggledraggable(choice) {
+	if (choice != 2 && date_enable > date_today) {
+		alert ("请注意: 这个功能/显示, 要在" + date_to_show + " 才能打开 / 开通 You could only open / use this feature on " + date_to_show);
+		return;
+	}
+	var match = document.getElementsByClassName("draggableBlock");
+	var model = document.getElementsByClassName("nonDraggableBlock");
+	if (choice == 1) {
+		document.getElementById("selfAddElement").disabled = true;
+		document.getElementById("selfAddElementColor").disabled = true;
+		document.getElementById("enterElementButton").disabled = true;
+	} else {
+		document.getElementById("selfAddElement").disabled = false;
+		document.getElementById("selfAddElementColor").disabled = false;
+		document.getElementById("enterElementButton").disabled = false;
+	}
+	// for sandbox
+	for (var i=0; i < match.length; i++) {
+		if (choice == 1) {
+			match[i].style.display = "none";
+		} else {
+			match[i].style.display = "block";
+		}
+	}
+	// for model
+	for (var i=0; i < model.length; i++) {
+		if (choice == 1 || choice == 3) {
+			model[i].style.display = "block";
+		} else {
+			model[i].style.display = "none";
+		}
+	}
+}
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  var i;
+  if (ev.target.id == "bucket_target_1") {
+	for (i = 0; i < bucket_target_1_cols.length; i++) {
+		if (bucket_target_1_cols[i] == data) {
+			ev.target.appendChild(document.getElementById(data));
+		}
+	}
+  } else if (ev.target.id == "bucket_source_1") {
+	ev.target.appendChild(document.getElementById(data));
+  }
+}
+
+function removeMyItem(eventId) {
+	var item = document.getElementById(eventId);
+	item.remove();
+	maxElementNum = maxElementNum - 1;
+}
+
+</script>
+
+</body>
+</html>
